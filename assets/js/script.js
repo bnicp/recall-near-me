@@ -97,8 +97,26 @@ function getApi() {
         eleContainer.innerHTML = "No Results Found";
       }
     });
-  initMap();
 }
+
+function getNYTArticles() {
+  var nytAPIKey = "IpBihDlOE1r2nQVdTm0GsZyMB2Ba0BGQ";
+  var queryParam = "election";
+  var nytRequestUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${queryParam}&api-key=${nytAPIKey}`;
+
+  fetch(nytRequestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // Deal with data here
+
+      console.log(data);
+    });
+}
+
+fetchButton.addEventListener("click", getNYTArticles);
+
 fetchButton.addEventListener("click", getApi);
 
 //var foodFirm = document.createElement('h3');
@@ -110,46 +128,3 @@ fetchButton.addEventListener("click", getApi);
 //cityName.textContent ="City:"+results[i].city;
 //  issueContainer.appendChild(foodFirm);
 // issueContainer.appendChild(cityName);
-
-/*function initMap() {
-        const myLatlng = { lat: -25.363, lng: 131.044 };
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 4,
-          center: myLatlng,
-        });
-        const marker = new google.maps.Marker({
-          position: myLatlng,
-          map,
-          title: "Click to zoom",
-        });
-      
-        map.addListener("center_changed", () => {
-          // 3 seconds after the center of the map has changed, pan back to the
-          // marker.
-          window.setTimeout(() => {
-            map.panTo(marker.getPosition());
-          }, 3000);
-        });
-        marker.addListener("click", () => {
-          map.setZoom(8);
-          map.setCenter(marker.getPosition());
-        });
-      }*/
-
-function initMap() {
-  var mapOptions = {
-    center: [36.778259, -119.417931],
-    zoom: 10,
-  };
-
-  // Creating a map object
-  var map = new L.map("map", mapOptions);
-
-  // Creating a Layer object
-  var layer = new L.TileLayer(
-    "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-  );
-
-  // Adding layer to the map
-  map.addLayer(layer);
-}
