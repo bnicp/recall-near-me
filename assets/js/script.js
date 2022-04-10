@@ -2,6 +2,7 @@
 
 var eleContainer = document.getElementById("displayResults");
 var fetchButton = document.getElementById("search");
+var topicChoice = document.getElementById("displayNYT");
 
 function getApi() {
   //var requestUrl = 'https://api.github.com/repos/IBM/clai/issues?per_page=5';
@@ -78,20 +79,21 @@ function getApi() {
     })
     .then(function (data) {
       var results = data.results;
-      console.log(results.length);
       //console.log(results[0]['city']);
       var htmlCreate = "";
       if (results.length > 0) {
+        // pulled this line out to test for NYT clickable entity
+        // <h4>${results[i].product_type} - ${results[i].recalling_firm}</h4>
         for (var i = 0; i < results.length; i++) {
-          htmlCreate = ` <div class = "resultsCard">
-       <h4>${results[i].product_type} - ${results[i].recalling_firm}</h3>
-       <p>State:  ${results[i].state}</p>
-       <p>City:${results[i].city}</p>
-       <p>Description:${results[i].product_description}</p>
-       <p>Reason for recall:${results[i].reason_for_recall}</p>
-       <p>Report Date:${results[i].report_date}</p>`; //+ htmlCreate;
+          htmlCreate = ` <div class="resultsCard">
+          <h4 class="recallFirm">${results[i].recalling_firm}</h4>
+          <p>State:  ${results[i].state}</p>
+          <p>City:${results[i].city}</p>
+          <p>Description:${results[i].product_description}</p>
+          <p>Reason for recall:${results[i].reason_for_recall}</p>
+          <p>Report Date:${results[i].report_date}</p></div>`; //+ htmlCreate;
 
-          eleContainer.innerHTML = eleContainer.innerHTML + htmlCreate;
+          eleContainer.innerHTML += htmlCreate;
         }
       } else {
         eleContainer.innerHTML = "No Results Found";
@@ -99,23 +101,54 @@ function getApi() {
     });
 }
 
-function getNYTArticles() {
+function getNYTArticles(event) {
+  topicChoice.innerHTML = "";
+  var queryParam = event.target.textContent;
+  queryParam = queryParam.replace(/\s/g, "%20");
   var nytAPIKey = "IpBihDlOE1r2nQVdTm0GsZyMB2Ba0BGQ";
-  var queryParam = "election";
   var nytRequestUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${queryParam}&api-key=${nytAPIKey}`;
+  var nytArticle = "";
 
   fetch(nytRequestUrl)
     .then(function (response) {
       return response.json();
     })
-    .then(function (data) {
-      // Deal with data here
+    .then(function (results) {
+      if (results.response.docs.length > 0) {
+        var articleArray = results.response.docs;
 
-      console.log(data);
+        for (var i = 0; i < articleArray.length; i++) {
+          var title = articleArray[i].headline.main;
+
+          if (!title) {
+            title = articleArray[i].headline.kicker;
+          }
+
+          if (articleArray[i].abstract) {
+            var abstract = `<p>Abstract: ${articleArray[i].abstract}</p>`;
+          } else {
+            var abstract = ``;
+          }
+          nytArticle = ` <div class="resultsCard"> 
+                <h4>${title}</h4>
+                <p>Published: ${moment(articleArray[i].pub_date).format(
+                  "MM/DD/YYYY"
+                )}</p> 
+                ${abstract}
+                <a href="${
+                  articleArray[i].web_url
+                }" target="popup">Article Link</a>
+                </div>`;
+          topicChoice.innerHTML += nytArticle;
+        }
+      } else {
+        topicChoice.innerHTML = "No Results Found";
+      }
     });
 }
 
-fetchButton.addEventListener("click", getNYTArticles);
+// Event listener for only the recall firm getting clicked on to search NYT articles
+$("#displayResults").on("click", ".recallFirm", getNYTArticles);
 
 fetchButton.addEventListener("click", getApi);
 
