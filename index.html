@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+   
     <link rel="stylesheet" href="./assets/css/style.css" />
     <!--- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>-->
 
@@ -17,49 +14,54 @@
 
   <body>
     <header>FDA Food Recall Information Log</header>
-
-    <!-- Page Layout here -->
-    <div class="row">
-      <div class="col s4">
-        <div class="search-area" id="search-area">
-          By City</input class="object search-field" type="text" id = "srchState" placeholder="example ">
-          <input class="object search-field" type="text" id = "srchCity" placeholder="By City">
-          <input class="object search-field" type="text" id = "srchFood" placeholder="By Food">
-          <input class="object search-field" type="text" id = "srchProd" placeholder="By Product Desc">
-          <label>Reported From: <input class="object" type="date" id = "srchFrmDt" name="rclfrom"> To:<input class="object" type="date" id = "srchToDt" name="rclto"></label>
-          <button  type="submit" class="btn btn-primary" id ="search">Submit</button>
+    <main>
+      <section class="flex-container-1">
+          <div class="flex-items-1 item-1">
+              <input type="text" id="srchState" placeholder="By State">
+              <input type="text" id="srchCity" placeholder="By City">
+              <input type="text" id = "srchFood" placeholder="By Food">
+              <input type="text" id = "srchProd" placeholder="By Product Desc">
+               <label>Reported From: <input type="date" id = "srchFrmDt" name="rclfrom"> To:<input type="date" id = "srchToDt" name="rclto"></label>
+               <button type="submit" class="btn btn-primary" id ="search">Submit</button>
+          
           </div>
-        <div id="history">
-          <h2>HISTORY</h2>
-          <p class="">Content here</p>
+          
+        <div class="flex-items-1"><h2>Search History</h2>
+          <canvas id="myChart" ></canvas>
         </div>
+       
+        <div class="flex-items-2" id = "displayResults">
+           
+  
       </div>
-
-      <div class="col s8">
-        <!-- Teal page content  -->
-        <div id="displayResults">
-          <h2>SEARCH RESULTS</h2>
-          <span class="card">Card insertion spot for search results</span>
+  
         </div>
-
-        <div id="news">
-          <h2>NEWS</h2>
-          <p class="">Content here</p>
-        </div>
+          <div class="flex-items-2 id="displayMap">
+            <div id="chartDiv" style="max-width: 740px;height: 480px;margin: 0px auto;"></div>
+             
+  
+          </div>
+  
+        </section>
+     
       </div>
-    </div>
+  </main>
 
     <script src="./assets/js/script.js"></script>
+
+    
+   <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+
+   
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
     <!--<script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxdWoy30owNrmQ4-avV7CCgBsgzh1gJ9Q&callback=initMap">
 </script>-->
     <!--<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet"/>
 <div id="osm-map"></div>-->
-    <script
-      src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
-      integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
-      crossorigin=""
-    ></script>
+   
   </body>
 </html>
