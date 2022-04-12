@@ -4,6 +4,7 @@ var eleContainer = document.getElementById("displayResults");
 var fetchButton = document.getElementById("search");
 var topicChoice = document.getElementById("displayNYT");
 
+
 function getApi() {
   //var requestUrl = 'https://api.github.com/repos/IBM/clai/issues?per_page=5';
   //alert("fetch");
@@ -99,6 +100,67 @@ function getApi() {
         eleContainer.innerHTML = "No Results Found";
       }
     });
+
+    var requestUrl1 = 'https://api.fda.gov/food/enforcement.json?search=reason_for_recall:milk&count=report_date';
+   var xValues =[];
+   var yValues = [];
+    fetch(requestUrl1)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var results = data.results;
+      for (var i = 0; i < 5; i++) {
+        xValues .push(results[i].time);
+        yValues .push(results[i].count);
+        
+      }
+
+      ctx.innerHTML = '';
+      var barColors = ["red", "green","blue","orange","brown"];
+      const myChart = new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: xValues,
+              datasets: [{
+               
+                data: yValues,
+                  backgroundColor:barColors,
+                  borderColor: [
+                      'rgba(255, 99, 132, 1,0.3)',
+                      'rgba(54, 162, 235, 1,0.3)',
+                      'rgba(255, 206, 86, 1,0.3)',
+                      'rgba(75, 192, 192, 1,0.3)',
+                      'rgba(153, 102, 255, 1,0.3)',
+                      'rgba(255, 159, 64, 1,0.3)'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  y: {
+                      beginAtZero: true
+                  }
+              }
+          }
+      });
+
+    });
+
+
+var ctx = document.getElementById('myChart').getContext('2d');
+//var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+//var yValues = [55, 49, 44, 24, 15];
+//console.log(xValues);
+//console.log(yValues);
+
+getMap();
+}
+
+
+
+
 }
 
 function getNYTArticles(event) {
@@ -151,13 +213,83 @@ function getNYTArticles(event) {
 $("#displayResults").on("click", ".recallFirm", getNYTArticles);
 
 fetchButton.addEventListener("click", getApi);
+function getMap(){
 
-//var foodFirm = document.createElement('h3');
-//var cityName= document.createElement('p');
-// alert(results[i].product_type+"-"+results[i].recalling_firm);
-//alert(results[i].city);
+  var requestUrl1='https://api.fda.gov/food/enforcement.json?count=state.exact';
 
-//foodFirm.textContent = results[i].product_type+"-"+results[i].recalling_firm;
-//cityName.textContent ="City:"+results[i].city;
-//  issueContainer.appendChild(foodFirm);
-// issueContainer.appendChild(cityName);
+  var xValues =[];
+   var yValues = [];
+
+  
+   fetch(requestUrl1)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        var results = data.results;
+        //alert(results.length);
+        for (var i = 0; i < 25/*results.length-1*/ ; i++) {
+          xValues .push(results[i].term);
+          yValues .push(results[i].count);
+          
+        }
+
+
+      
+     
+
+      //console.log(xValues);
+
+//var mapStates = 'AL,AK,AZ,AR,CA,CO,CT,DE,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VT,VA,WA,WV,WI,WY'.split(  ',');
+var chartConfig = {
+  debug: true,
+  type: 'map',
+  palette: {
+    pointValue: '{%zValue}',
+    colors: ['#f7fcfd', '#e5f5f9', '#ccece6', '#99d8c9', '#66c2a4', '#41ae76', '#238b45', '#006d2c', '#00441b'],
+   //ranges: { min: 0, max: 1000, interval: 200 },
+  //  defaultRange_legendEntry_value: '$%min - $%max'
+  },
+  legend: {
+  //  title_label_text: 'Sales',
+  //  template: '%value %icon',
+    position: 'top'
+  },
+  
+  defaultPoint: {
+    label_text: '%stateCode',
+    tooltip: '<b>%name</b> <br/>Count: {%zValue}'
+  },
+ //defaultSeries_shape_padding: 0.02,
+  series: [{ id: 'usMap', map: 'us' }]
+};
+
+chartConfig.series[0].points = getRandomPoints();
+var chart = JSC.chart('chartDiv', chartConfig);
+var xNew = '';
+var yNew = '';
+function getRandomPoints() {
+
+  for(i=0;i<xValues.length-1;i++){
+   xNew = xNew+','+xValues[i];
+   yNew = yNew+','+yValues[i]
+  
+  }
+
+
+xNew = xNew.split(  ',');
+yNew = yNew.split(  ',');
+
+ return xNew.map(function(arrItem,index) {
+
+    return { map: 'US.' +  arrItem, 
+                   z: yNew[index]
+  
+  
+  };
+  });
+
+
+}
+});                                                                                                                     
+}git 
