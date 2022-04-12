@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/reset.css" />
-   
+
     <link rel="stylesheet" href="./assets/css/style.css" />
     <!--- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>-->
 
@@ -16,52 +16,53 @@
     <header>FDA Food Recall Information Log</header>
     <main>
       <section class="flex-container-1">
-          <div class="flex-items-1 item-1">
-              <input type="text" id="srchState" placeholder="By State">
-              <input type="text" id="srchCity" placeholder="By City">
-              <input type="text" id = "srchFood" placeholder="By Food">
-              <input type="text" id = "srchProd" placeholder="By Product Desc">
-               <label>Reported From: <input type="date" id = "srchFrmDt" name="rclfrom"> To:<input type="date" id = "srchToDt" name="rclto"></label>
-               <button type="submit" class="btn btn-primary" id ="search">Submit</button>
-          
-          </div>
-          
-        <div class="flex-items-1"><h2>Search History</h2>
-          <canvas id="myChart" ></canvas>
+        <div class="flex-items-1 item-1">
+          <input type="text" id="srchState" placeholder="By State" />
+          <input type="text" id="srchCity" placeholder="By City" />
+          <input type="text" id="srchFood" placeholder="By Food" />
+          <input type="text" id="srchProd" placeholder="By Product Desc" />
+          <label
+            >Reported From:
+            <input type="date" id="srchFrmDt" name="rclfrom" /> To:<input
+              type="date"
+              id="srchToDt"
+              name="rclto"
+          /></label>
+          <button type="submit" class="btn btn-primary" id="search">
+            Submit
+          </button>
         </div>
-       
-        <div class="flex-items-2" id = "displayResults">
-           
-  
-      </div>
-  
+
+        <div class="flex-items-1">
+          <h2>Search History</h2>
+          <canvas id="myChart"></canvas>
         </div>
-          <div class="flex-items-2 id="displayMap">
-            <div id="chartDiv" style="max-width: 740px;height: 480px;margin: 0px auto;"></div>
-             
-  
-          </div>
-  
-        </section>
-     
-      </div>
-  </main>
+
+        <div class="flex-items-2" id="displayResults"></div>
+        <div class="flex-items-2" id="displayNYT"></div>
+        <div class="flex-items-2 id="displayMap">
+
+        <div
+          id="chartDiv"
+          style="max-width: 740px; height: 480px; margin: 0px auto"
+        ></div>
+      </section>
+    </main>
 
     <script src="./assets/js/script.js"></script>
-
-    
-   <script src="https://code.jscharting.com/latest/jscharting.js"></script>
-
-   
-<script
-src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-</script>
+    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
     <!--<script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxdWoy30owNrmQ4-avV7CCgBsgzh1gJ9Q&callback=initMap">
 </script>-->
     <!--<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet"/>
 <div id="osm-map"></div>-->
-   
   </body>
 </html>
