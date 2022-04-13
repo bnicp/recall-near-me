@@ -282,6 +282,8 @@ document.addEventListener("click", function (event) {
   if (event.target.classList.contains("recallFirm")) {
     getNYTArticles(event);
   }
-});
 
-fetchButton.addEventListener("click", getApi);
+  if (event.target.id === "search") {
+    getApi();
+  }
+});
