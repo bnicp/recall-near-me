@@ -202,18 +202,6 @@ function getNYTArticles(event) {
     });
 }
 
-// Event listener for only the recall firm getting clicked on to search NYT articles
-// $("#displayResults").on("click", ".recallFirm", getNYTArticles);
-
-// Event listener for whole page
-document.addEventListener("click", function (event) {
-  if (event.target.classList.contains("recallFirm")) {
-    getNYTArticles(event);
-  }
-});
-
-fetchButton.addEventListener("click", getApi);
-
 function getMap() {
   var requestUrl1 =
     "https://api.fda.gov/food/enforcement.json?count=state.exact";
@@ -232,8 +220,6 @@ function getMap() {
         xValues.push(results[i].term);
         yValues.push(results[i].count);
       }
-
-      //console.log(xValues);
 
       //var mapStates = 'AL,AK,AZ,AR,CA,CO,CT,DE,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VT,VA,WA,WV,WI,WY'.split(  ',');
       var chartConfig = {
@@ -288,3 +274,14 @@ function getMap() {
       }
     });
 }
+
+// Event listener for whole page
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("recallFirm")) {
+    getNYTArticles(event);
+  }
+
+  if (event.target.id === "search") {
+    getApi();
+  }
+});
