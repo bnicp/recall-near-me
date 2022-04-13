@@ -202,18 +202,6 @@ function getNYTArticles(event) {
     });
 }
 
-// Event listener for only the recall firm getting clicked on to search NYT articles
-// $("#displayResults").on("click", ".recallFirm", getNYTArticles);
-
-// Event listener for whole page
-document.addEventListener("click", function (event) {
-  if (event.target.classList.contains("recallFirm")) {
-    getNYTArticles(event);
-  }
-});
-
-fetchButton.addEventListener("click", getApi);
-
 function getMap() {
   var requestUrl1 =
     "https://api.fda.gov/food/enforcement.json?count=state.exact";
@@ -288,3 +276,12 @@ function getMap() {
       }
     });
 }
+
+// Event listener for whole page
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("recallFirm")) {
+    getNYTArticles(event);
+  }
+});
+
+fetchButton.addEventListener("click", getApi);
