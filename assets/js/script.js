@@ -1,49 +1,33 @@
 //https://open.fda.gov/apis/advanced-syntax/
-
 var eleContainer = document.getElementById("displayResults");
 var fetchButton = document.getElementById("search");
 var topicChoice = document.getElementById("displayNYT");
-
 function getApi() {
   //var requestUrl = 'https://api.github.com/repos/IBM/clai/issues?per_page=5';
   //alert("fetch");
-
   //construct url
   eleContainer.innerHTML = "";
-
   var url_1 = "https://api.fda.gov/food/enforcement.json?search=";
-
   var paramState = document.getElementById("srchState").value.trim();
   var paramCity = document.getElementById("srchCity").value.trim();
-  var paramFood = document.getElementById("srchFood").value.trim();
   var paramProd = document.getElementById("srchProd").value.trim();
   var paramFrmDt = document.getElementById("srchFrmDt").value.trim();
   var paramToDt = document.getElementById("srchToDt").value.trim();
   var urlArray = [];
-
   if (paramState != "") {
     paramState = paramState.split(" ").join("+");
     var url_2 = "state:" + paramState;
     urlArray.push(url_2);
   }
-
   if (paramCity != "") {
     paramCity = paramCity.split(" ").join("+");
     var url_3 = "+city:" + paramCity;
     urlArray.push(url_3);
   }
-
-  if (paramFood != "") {
-    paramFood = paramFood.split(" ").join("+");
-    var url_4 = "+reason_for_recall:" + paramFood;
-    urlArray.push(url_4);
-  }
-
   if (paramFrmDt != "" || paramToDt != "") {
     paramFrmDt = paramFrmDt.split("-").join("");
     paramToDt = paramToDt.split("-").join("");
     //alert(paramFrmDt);
-
     if (paramFrmDt != "" && paramToDt != "") {
       var url_5 = "report_date:" + "[" + paramFrmDt + "+TO+" + paramToDt + "]";
       urlArray.push(url_5);
@@ -53,13 +37,11 @@ function getApi() {
       // var url_5 = 'report_date:'+'['+paramToDt+']';
     }
   }
-
   if (paramProd != "") {
     paramProd = paramProd.split(" ").join("+");
     var url_6 = "+product_description:" + paramProd;
     urlArray.push(url_6);
   }
-
   for (var i = 0; i < urlArray.length; i++) {
     if (i == 0) {
       url_1 = url_1 + urlArray[i];
@@ -68,11 +50,9 @@ function getApi() {
     }
     //alert(url_1);
   }
-
   var requestUrl = url_1 + "&limit=5"; //+'report_date:[20220101+TO+20221231]&limit=5'
   // 'https://api.fda.gov/food/enforcement.json';
   //https://api.fda.gov/food/enforcement.json?search=reason_for_recall:peanut;
-
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -92,7 +72,6 @@ function getApi() {
           <p>Description:${results[i].product_description}</p>
           <p>Reason for recall:${results[i].reason_for_recall}</p>
           <p>Report Date:${results[i].report_date}</p></div>`; //+ htmlCreate;
-
           eleContainer.innerHTML += htmlCreate;
         }
       } else {
@@ -155,7 +134,6 @@ function getApi() {
 
   getMap();
 }
-
 function getNYTArticles(event) {
   topicChoice.innerHTML = "";
   var queryParam = event.target.textContent;
@@ -163,7 +141,6 @@ function getNYTArticles(event) {
   var nytAPIKey = "IpBihDlOE1r2nQVdTm0GsZyMB2Ba0BGQ";
   var nytRequestUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${queryParam}&api-key=${nytAPIKey}`;
   var nytArticle = "";
-
   fetch(nytRequestUrl)
     .then(function (response) {
       return response.json();
@@ -171,14 +148,11 @@ function getNYTArticles(event) {
     .then(function (results) {
       if (results.response.docs.length > 0) {
         var articleArray = results.response.docs;
-
         for (var i = 0; i < articleArray.length; i++) {
           var title = articleArray[i].headline.main;
-
           if (!title) {
             title = articleArray[i].headline.kicker;
           }
-
           if (articleArray[i].abstract) {
             var abstract = `<p>Abstract: ${articleArray[i].abstract}</p>`;
           } else {
@@ -205,7 +179,6 @@ function getNYTArticles(event) {
 function getMap() {
   var requestUrl1 =
     "https://api.fda.gov/food/enforcement.json?count=state.exact";
-
   var xValues = [];
   var yValues = [];
 
@@ -282,6 +255,8 @@ document.addEventListener("click", function (event) {
   }
 
   if (event.target.id === "search") {
+    event.preventDefault();
+
     getApi();
   }
 });

@@ -4,47 +4,122 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://www.w3schools.com/lib/w3-theme-blue-grey.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
+    <!-- <link href="./assets/css/style.css" /> -->
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+
     <title>FDA Recall</title>
   </head>
 
   <body>
-    <header>FDA Food Recall Information Log</header>
-    <main>
-      <section class="flex-container-1">
-        <div class="flex-items-1 item-1">
-          <input type="text" id="srchState" placeholder="By State" />
-          <input type="text" id="srchCity" placeholder="By City" />
-          <input type="text" id="srchFood" placeholder="By Food" />
-          <input type="text" id="srchProd" placeholder="By Product Desc" />
-          <label
-            >Reported From:
-            <input type="date" id="srchFrmDt" name="rclfrom" /> To:<input
-              type="date"
-              id="srchToDt"
-              name="rclto"
-          /></label>
-          <button type="submit" class="btn btn-primary" id="search">
-            Submit
-          </button>
+
+    <!-- Side Navigation -->
+    <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display: none" id="mySidebar">
+      <h1 class="w3-xxxlarge w3-text-theme">Side Navigation</h1>
+      <button class="w3-bar-item w3-button" onclick="w3_close()">
+        Close <i class="fa fa-remove"></i>
+      </button>
+      <a href="#" class="w3-bar-item w3-button">Link 1</a>
+      <a href="#" class="w3-bar-item w3-button">Link 2</a>
+      <a href="#" class="w3-bar-item w3-button">Link 3</a>
+      <a href="#" class="w3-bar-item w3-button">Link 4</a>
+    </nav>
+  
+    <!-- Header -->
+    <header class="w3-container w3-theme w3-padding" id="myHeader">
+      <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i>
+      <div class="w3-center">
+        <h1 class="w3-xxxlarge w3-animate-bottom">FDA RECALL INFORMATION</h1>
+        <div class="w3-padding-16">
         </div>
-
-        <div class="flex-items-1">
-          <h2>Search History</h2>
-          <canvas id="myChart"></canvas>
+      </div>
+    </header>
+  
+    <!-- Modal -->
+    <div id="id01" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-top">
+        <header class="w3-container w3-theme-l1">
+          <span onclick="document.getElementById('id01').style.display='none'"
+            class="w3-button w3-display-topright">×</span>
+          <h4>Oh snap! We just showed you a modal..</h4>
+          <h5>Because we can <i class="fa fa-smile-o"></i></h5>
+        </header>
+        <div class="w3-padding">
+          <p>Cool huh? Ok, enough teasing around..</p>
+          <p>
+            Go to our
+            <a class="w3-btn" href="/w3css/default.asp">W3.CSS Tutorial</a> to
+            learn more!
+          </p>
         </div>
-
-        <div class="flex-items-2" id="displayResults"></div>
-        <div class="flex-items-2" id="displayNYT"></div>
-        <div class="flex-items-2 id="displayMap">
-
-        <div
-          id="chartDiv"
+        <footer class="w3-container w3-theme-l1">
+          <p>Modal footer</p>
+        </footer>
+      </div>
+    </div>
+  
+    <div class="w3-row-padding w3-center w3-margin-top">
+      <div class="w3-row-padding">
+        <div class="w3-third">
+          <form class="w3-container w3-card-4">
+            <h2>Search By</h2>
+            <div class="w3-section">
+              <input class="w3-input" type="text" id="srchState" placeholder="Ex: Georgia" />
+              <label>State</label>
+            </div>
+            <div class="w3-section">
+              <input class="w3-input" type="text" id="srchCity" placeholder="Ex: Atlanta" />
+              <label>City</label>
+            </div>
+            <div class="w3-section">
+              <input class="w3-input" type="text" id="srchProd" placeholder="Ex: Cheese" />
+              <label>Product Description</label>
+            </div>
+            <div class="w3-section">
+              <p>Date Reported</p>
+              <label>Fr:
+                <input type="date" id="srchFrmDt" name="rclfrom" />
+                <div class="w3-section">To: <input type="date" id="srchToDt" name="rclto" />
+              </label>
+            </div>
+            <div class="w3-section">
+              <button type="submit" class="w3-button w3-dark-grey w3-hover-dark-grey" id="search">
+                Submit
+              </button>
+            </div>
+        </div>
+      </div>
+  
+  
+      <div class="w3-twothird">
+        <div class="w3-card w3-container" style="min-height: 460px">
+          <h3>Active Recall Results</h3>
+          <br />
+          <div id="displayResults"></div>
+          <div id="displayNYT"></div>
+          <div id="displayMap"></div>
+          <div id="chartDiv"
           style="max-width: 740px; height: 480px; margin: 0px auto"
-        ></div>
-      </section>
-    </main>
+          ></div>
+        </div>
+      </div>
+    </div>    
+
+    <!-- Footer -->
+    <footer class="w3-container w3-theme-dark w3-padding-16">
+      <h3>Footer</h3>
+      <div style="position: relative; bottom: 55px" class="w3-tooltip w3-right">
+        <span class="w3-text w3-theme-light w3-padding">Go To Top</span> </div>
+    </footer>
 
     <script src="https://code.jscharting.com/latest/jscharting.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
