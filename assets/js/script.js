@@ -78,6 +78,7 @@ function getApi() {
         eleContainer.innerHTML = "No Results Found";
       }
     });
+
   var requestUrl1 =
     "https://api.fda.gov/food/enforcement.json?search=reason_for_recall:milk&count=report_date";
   var xValues = [];
@@ -92,6 +93,7 @@ function getApi() {
         xValues.push(results[i].time);
         yValues.push(results[i].count);
       }
+
       ctx.innerHTML = "";
       var barColors = ["red", "green", "blue", "orange", "brown"];
       const myChart = new Chart(ctx, {
@@ -123,11 +125,13 @@ function getApi() {
         },
       });
     });
+
   var ctx = document.getElementById("myChart").getContext("2d");
   //var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
   //var yValues = [55, 49, 44, 24, 15];
   //console.log(xValues);
   //console.log(yValues);
+
   getMap();
 }
 function getNYTArticles(event) {
@@ -171,11 +175,13 @@ function getNYTArticles(event) {
       }
     });
 }
+
 function getMap() {
   var requestUrl1 =
     "https://api.fda.gov/food/enforcement.json?count=state.exact";
   var xValues = [];
   var yValues = [];
+
   fetch(requestUrl1)
     .then(function (response) {
       return response.json();
@@ -187,6 +193,7 @@ function getMap() {
         xValues.push(results[i].term);
         yValues.push(results[i].count);
       }
+
       //var mapStates = 'AL,AK,AZ,AR,CA,CO,CT,DE,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VT,VA,WA,WV,WI,WY'.split(  ',');
       var chartConfig = {
         debug: true,
@@ -212,6 +219,7 @@ function getMap() {
           //  template: '%value %icon',
           position: "top",
         },
+
         defaultPoint: {
           label_text: "%stateCode",
           tooltip: "<b>%name</b> <br/>Count: {%zValue}",
@@ -219,6 +227,7 @@ function getMap() {
         //defaultSeries_shape_padding: 0.02,
         series: [{ id: "usMap", map: "us" }],
       };
+
       chartConfig.series[0].points = getRandomPoints();
       var chart = JSC.chart("chartDiv", chartConfig);
       var xNew = "";
@@ -228,21 +237,26 @@ function getMap() {
           xNew = xNew + "," + xValues[i];
           yNew = yNew + "," + yValues[i];
         }
+
         xNew = xNew.split(",");
         yNew = yNew.split(",");
+
         return xNew.map(function (arrItem, index) {
           return { map: "US." + arrItem, z: yNew[index] };
         });
       }
     });
 }
+
 // Event listener for whole page
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("recallFirm")) {
     getNYTArticles(event);
   }
+
   if (event.target.id === "search") {
     event.preventDefault();
+
     getApi();
   }
 });
