@@ -2,11 +2,13 @@
 var eleContainer = document.getElementById("displayResults");
 var fetchButton = document.getElementById("search");
 var topicChoice = document.getElementById("displayNYT");
+
 function getApi() {
   //var requestUrl = 'https://api.github.com/repos/IBM/clai/issues?per_page=5';
   //alert("fetch");
   //construct url
   eleContainer.innerHTML = "";
+  eleContainer.innerHTML = `<h3>Active Recall Results</h3>`;
   var url_1 = "https://api.fda.gov/food/enforcement.json?search=";
   var paramState = document.getElementById("srchState").value.trim();
   var paramCity = document.getElementById("srchCity").value.trim();
@@ -65,13 +67,19 @@ function getApi() {
         // pulled this line out to test for NYT clickable entity
         // <h4>${results[i].product_type} - ${results[i].recalling_firm}</h4>
         for (var i = 0; i < results.length; i++) {
-          htmlCreate = ` <div class="resultsCard">
+          htmlCreate = ` <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding">
           <h4 class="recallFirm">${results[i].recalling_firm}</h4>
-          <p>State:  ${results[i].state}</p>
-          <p>City:${results[i].city}</p>
-          <p>Description:${results[i].product_description}</p>
-          <p>Reason for recall:${results[i].reason_for_recall}</p>
-          <p>Report Date:${results[i].report_date}</p></div>`; //+ htmlCreate;
+          <p class="w3-left-align">State:  ${results[i].state}</p>
+          <p class="w3-left-align">City: ${results[i].city}</p>
+          <p class="w3-left-align">Description: ${
+            results[i].product_description
+          }</p>
+          <p class="w3-left-align">Reason for recall: ${
+            results[i].reason_for_recall
+          }</p>
+          <p class="w3-left-align">Report Date: ${moment(
+            results[i].report_date
+          ).format("MM/DD/YYYY")}</span></p></div>`; //+ htmlCreate;
           eleContainer.innerHTML += htmlCreate;
         }
       } else {
@@ -158,7 +166,7 @@ function getNYTArticles(event) {
           } else {
             var abstract = ``;
           }
-          nytArticle = ` <div class="resultsCard"> 
+          nytArticle = ` <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding"> 
                 <h4>${title}</h4>
                 <p>Published: ${moment(articleArray[i].pub_date).format(
                   "MM/DD/YYYY"
@@ -251,12 +259,13 @@ function getMap() {
 // Event listener for whole page
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("recallFirm")) {
+    topicChoice.classList.remove("hide");
     getNYTArticles(event);
   }
 
   if (event.target.id === "search") {
     event.preventDefault();
-
+    eleContainer.classList.remove("hide");
     getApi();
   }
 });

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link
       rel="stylesheet"
@@ -13,8 +14,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
     />
-    <!-- <link href="./assets/css/style.css" /> -->
-    <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 
     <title>FDA Recall</title>
@@ -86,7 +85,7 @@
             </div>
             <div class="w3-section">
               <p>Date Reported</p>
-              <label>Fr:
+              <label>From:
                 <input type="date" id="srchFrmDt" name="rclfrom" />
                 <div class="w3-section">To: <input type="date" id="srchToDt" name="rclto" />
               </label>
@@ -102,10 +101,8 @@
   
       <div class="w3-twothird">
         <div class="w3-card w3-container" style="min-height: 460px">
-          <h3>Active Recall Results</h3>
-          <br />
-          <div id="displayResults"></div>
-          <div id="displayNYT"></div>
+          <div class="hide" id="displayResults"></div>
+          <div class="hide" id="displayNYT"></div>
           <div id="displayMap"></div>
           <div id="chartDiv"
           style="max-width: 740px; height: 480px; margin: 0px auto"
