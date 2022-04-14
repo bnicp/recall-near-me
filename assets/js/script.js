@@ -1,5 +1,7 @@
 //https://open.fda.gov/apis/advanced-syntax/
 var eleContainer = document.getElementById("displayResults");
+var fdaContainer = document.getElementById("fdaResults");
+var nytContainer = document.getElementById("nytResults");
 var fetchButton = document.getElementById("search");
 var topicChoice = document.getElementById("displayNYT");
 
@@ -263,6 +265,9 @@ function getMap() {
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("recallFirm")) {
     topicChoice.classList.remove("hide");
+    fdaContainer.classList.remove("w3-twothird");
+    fdaContainer.classList.add("w3-third");
+    nytContainer.classList.remove("hide");
     getNYTArticles(event);
   }
 
@@ -270,6 +275,10 @@ document.addEventListener("click", function (event) {
     event.preventDefault();
     if (!topicChoice.classList.contains("hide")) {
       topicChoice.classList.add("hide");
+    }
+    if (fdaContainer.classList.contains("w3-third")) {
+      fdaContainer.classList.remove("w3-third");
+      fdaContainer.classList.add("w3-twothird");
     }
 
     eleContainer.classList.remove("hide");
