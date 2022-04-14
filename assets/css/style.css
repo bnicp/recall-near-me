@@ -36,6 +36,10 @@ header {
   position: relative;
 }
 
+.recallFirm:hover {
+  cursor: pointer;
+}
+
 /* #displayResults {
   overflow: scroll;
 } */

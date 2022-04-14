@@ -68,7 +68,9 @@ function getApi() {
         // <h4>${results[i].product_type} - ${results[i].recalling_firm}</h4>
         for (var i = 0; i < results.length; i++) {
           htmlCreate = ` <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding">
-          <h4 class="recallFirm">${results[i].recalling_firm}</h4>
+          <h4 class="recallFirm w3-hover-opacity">${
+            results[i].recalling_firm
+          }</h4>
           <p class="w3-left-align">State:  ${results[i].state}</p>
           <p class="w3-left-align">City: ${results[i].city}</p>
           <p class="w3-left-align">Description: ${
@@ -144,6 +146,7 @@ function getApi() {
 }
 function getNYTArticles(event) {
   topicChoice.innerHTML = "";
+  topicChoice.innerHTML = `<h3>New York Times Relevant Articles</h3>`;
   var queryParam = event.target.textContent;
   queryParam = queryParam.replace(/\s/g, "%20");
   var nytAPIKey = "IpBihDlOE1r2nQVdTm0GsZyMB2Ba0BGQ";
@@ -162,19 +165,19 @@ function getNYTArticles(event) {
             title = articleArray[i].headline.kicker;
           }
           if (articleArray[i].abstract) {
-            var abstract = `<p>Abstract: ${articleArray[i].abstract}</p>`;
+            var abstract = `<p class="w3-left-align">Abstract: ${articleArray[i].abstract}</p>`;
           } else {
             var abstract = ``;
           }
           nytArticle = ` <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding"> 
                 <h4>${title}</h4>
-                <p>Published: ${moment(articleArray[i].pub_date).format(
-                  "MM/DD/YYYY"
-                )}</p> 
+                <p class="w3-left-align">Published: ${moment(
+                  articleArray[i].pub_date
+                ).format("MM/DD/YYYY")}</p> 
                 ${abstract}
                 <a href="${
                   articleArray[i].web_url
-                }" target="popup">Article Link</a>
+                }" target="popup" class="w3-left-align">Article Link</a>
                 </div>`;
           topicChoice.innerHTML += nytArticle;
         }
@@ -265,6 +268,10 @@ document.addEventListener("click", function (event) {
 
   if (event.target.id === "search") {
     event.preventDefault();
+    if (!topicChoice.classList.contains("hide")) {
+      topicChoice.classList.add("hide");
+    }
+
     eleContainer.classList.remove("hide");
     getApi();
   }
