@@ -50,9 +50,10 @@ function getApi() {
     }
     //alert(url_1);
   }
-  var requestUrl = url_1 + "&limit=5"; //+'report_date:[20220101+TO+20221231]&limit=5'
+  var requestUrl = url_1 + "&sort=report_date:desc&limit=5"; //+'report_date:[20220101+TO+20221231]&limit=5'
   // 'https://api.fda.gov/food/enforcement.json';
   //https://api.fda.gov/food/enforcement.json?search=reason_for_recall:peanut;
+  //alert(requestUrl);
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -80,7 +81,7 @@ function getApi() {
     });
 
   var requestUrl1 =
-    "https://api.fda.gov/food/enforcement.json?search=reason_for_recall:milk&count=report_date";
+    "https://api.fda.gov/food/enforcement.json?search=reason_for_recall:milk&count=report_date&sort=report_date:desc&limit=10";
   var xValues = [];
   var yValues = [];
   fetch(requestUrl1)
@@ -179,6 +180,8 @@ function getNYTArticles(event) {
 function getMap() {
   var requestUrl1 =
     "https://api.fda.gov/food/enforcement.json?count=state.exact";
+    //https://api.fda.gov/food/enforcement.json?search=+product_description:whey&count=state.exact&limit=10
+    //product_desc and limit 10
   var xValues = [];
   var yValues = [];
 
