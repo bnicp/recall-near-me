@@ -172,7 +172,7 @@ function getNYTArticles(event) {
           } else {
             var abstract = ``;
           }
-          nytArticle = ` <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding"> 
+          nytArticle = ` <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding">
           <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">${title}</span></p>
           <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">Published:</span> ${moment(
                   articleArray[i].pub_date
