@@ -16,7 +16,6 @@
   font-size: large;
   font-family: monospace;
   }
-}
 
 html, body {
   height: 100%;
@@ -61,4 +60,3 @@ footer {
 #history,
 #news {
   /* margin: 0 1rem; */
-}
