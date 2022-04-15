@@ -14,7 +14,8 @@
   padding: 0;
   margin: 0;
   font-size: large;
-  font-family: monospace;
+  font-family: "Inconsolata", sans-serif;
+    }
   }
 
 html, body {
@@ -56,7 +57,3 @@ footer {
 /* .hide {
   display: none;
 }
-
-#history,
-#news {
-  /* margin: 0 1rem; */

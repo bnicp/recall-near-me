@@ -74,6 +74,8 @@ function getApi() {
           <h4 class="recallFirm w3-hover-opacity w3-bar-block w3-xlarge w3-light-grey w3-text-black">${
             results[i].recalling_firm
           }</h4>
+          <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">State:</span>  ${results[i].state}</p>
+          <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">City:</span> ${results[i].city}</p>
           <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">State:</span>  ${
             results[i].state
           }</p>
@@ -176,10 +178,11 @@ function getNYTArticles(event) {
           } else {
             var abstract = ``;
           }
-          nytArticle = ` <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding">
+          nytArticle = `  <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding">
+          <h4 class="recallFirm w3-hover-opacity w3-bar-block w3-xlarge w3-light-grey w3-text-black">
           <a href="${
             articleArray[i].web_url
-          }" target="popup" class="w3-medium w3-left-align w3-padding"><span class="w3-large">${title}</span></a>
+          }" target="popup" class="w3-medium w3-left-align w3-padding"><span class="w3-large">${title}</span></a></h4>
           <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">Published:</span> ${moment(
             articleArray[i].pub_date
           ).format("MM/DD/YYYY")}</p> 
