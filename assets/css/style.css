@@ -22,20 +22,6 @@ html {
   background-color: var(--light-background);
 }
 
-/* header styling */
-header {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  height: 6rem;
-  line-height: 2rem;
-  text-align: center;
-  font-size: 4rem;
-  font-weight: bolder;
-  position: relative;
-}
-
 .recallFirm:hover {
   cursor: pointer;
 }
