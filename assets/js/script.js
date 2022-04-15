@@ -151,9 +151,10 @@ function getApi() {
 
   getMap();
 }
+
 function getNYTArticles(event) {
   topicChoice.innerHTML = "";
-  topicChoice.innerHTML = `<h3>New York Times Relevant Articles</h3>`;
+  topicChoice.innerHTML = `<h3>New York Times Relevant Articles for: <br> "${event.target.textContent}"</h3>`;
   var queryParam = event.target.textContent;
   queryParam = queryParam.replace(/\s/g, "%20");
   var nytAPIKey = "IpBihDlOE1r2nQVdTm0GsZyMB2Ba0BGQ";
