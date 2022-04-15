@@ -18,27 +18,25 @@
   }
 }
 
-html {
+html, body {
+  height: 100%;
   font-size: 62.5%;
   text-align: center;
   background-color: var(--light-background);
 }
 
-span {
-  font-weight: bold;
+body {
+  display: flex;
+  flex-direction: column;
 }
 
-/* header styling */
-header {
-  display: flex;
-  justify-content: center;
-  height: 6rem;
-  line-height: 2rem;
-  text-align: center;
-  font-size: 4rem;
-  font-weight: bolder;
-  position: relative;
-  color: black;
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+  margin-top: 2rem;
 }
 
 .recallFirm:hover {
