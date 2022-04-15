@@ -16,10 +16,25 @@
   font-size: large;
 }
 
-html {
+html, body {
+  height: 100%;
   font-size: 62.5%;
   text-align: center;
   background-color: var(--light-background);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+  margin-top: 2rem;
 }
 
 .recallFirm:hover {
