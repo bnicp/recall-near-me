@@ -15,8 +15,7 @@
   margin: 0;
   font-size: large;
   font-family: "Inconsolata", sans-serif;
-    }
-  }
+}
 
 html, body {
   height: 100%;
@@ -43,6 +42,14 @@ footer {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
+.hide {
+  display: none;
+}
+
 /* #displayResults {
   overflow: scroll;
 } */
@@ -53,7 +60,3 @@ footer {
   border: solid black 4px;
   /* min-height: 350px; */
 /*} */
-
-/* .hide {
-  display: none;
-}
