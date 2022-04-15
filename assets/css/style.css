@@ -42,21 +42,6 @@ footer {
   cursor: pointer;
 }
 
-/* #displayResults {
-  overflow: scroll;
-} */
-
-/* #displayResults,
-#history,
-#displayNYT {
-  border: solid black 4px;
-  /* min-height: 350px; */
-/*} */
-
 /* .hide {
   display: none;
 }
-
-#history,
-#news {
-  /* margin: 0 1rem; */
