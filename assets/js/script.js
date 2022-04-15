@@ -193,8 +193,8 @@ function getNYTArticles(event) {
 function getMap() {
   var requestUrl1 =
     "https://api.fda.gov/food/enforcement.json?count=state.exact";
-    //https://api.fda.gov/food/enforcement.json?search=+product_description:whey&count=state.exact&limit=10
-    //product_desc and limit 10
+  //https://api.fda.gov/food/enforcement.json?search=+product_description:whey&count=state.exact&limit=10
+  //product_desc and limit 10
   var xValues = [];
   var yValues = [];
 
@@ -264,6 +264,16 @@ function getMap() {
     });
 }
 
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
 // Event listener for whole page
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("recallFirm")) {
@@ -284,7 +294,7 @@ document.addEventListener("click", function (event) {
       fdaContainer.classList.add("w3-twothird");
     }
 
-    eleContainer.classList.remove("hide");
+    fdaContainer.classList.remove("hide");
     getApi();
   }
 });
