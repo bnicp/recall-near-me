@@ -71,11 +71,11 @@ function getApi() {
         // <h4>${results[i].product_type} - ${results[i].recalling_firm}</h4>
         for (var i = 0; i < results.length; i++) {
           htmlCreate = ` <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding">
-          <h4 class="recallFirm w3-hover-opacity w3-bar-block w3-xlarge w3-black">${
+          <h4 class="recallFirm w3-hover-opacity w3-bar-block w3-xlarge w3-light-grey w3-text-black">${
             results[i].recalling_firm
           }</h4>
-          <p class="w3-xlarge w3-left-align w3-padding"><span class="w3-xlarge">State:</span>  ${results[i].state}</p>
-          <p class="w3-large w3-left-align w3-padding"><span class="w3-large">City:</span> ${results[i].city}</p>
+          <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">State:</span>  ${results[i].state}</p>
+          <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">City:</span> ${results[i].city}</p>
           <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">Description:</span> ${
             results[i].product_description
           }</p>
@@ -168,13 +168,13 @@ function getNYTArticles(event) {
             title = articleArray[i].headline.kicker;
           }
           if (articleArray[i].abstract) {
-            var abstract = `<p class="w3-left-align">Abstract: ${articleArray[i].abstract}</p>`;
+            var abstract = `<p class="w3-medium w3-left-align w3-padding"><span class="w3-large">Abstract:</span> ${articleArray[i].abstract}</p>`;
           } else {
             var abstract = ``;
           }
           nytArticle = ` <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding"> 
-                <h4>${title}</h4>
-                <p class="w3-left-align">Published: ${moment(
+          <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">${title}</span></p>
+          <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">Published:</span> ${moment(
                   articleArray[i].pub_date
                 ).format("MM/DD/YYYY")}</p> 
                 ${abstract}
