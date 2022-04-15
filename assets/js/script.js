@@ -74,8 +74,6 @@ function getApi() {
           <h4 class="recallFirm w3-hover-opacity w3-bar-block w3-xlarge w3-light-grey w3-text-black">${
             results[i].recalling_firm
           }</h4>
-          <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">State:</span>  ${results[i].state}</p>
-          <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">City:</span> ${results[i].city}</p>
           <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">State:</span>  ${
             results[i].state
           }</p>
