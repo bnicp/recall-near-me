@@ -14,6 +14,8 @@
   padding: 0;
   margin: 0;
   font-size: large;
+  font-family: monospace;
+  }
 }
 
 html, body {
@@ -52,19 +54,11 @@ footer {
   /* min-height: 350px; */
 /*} */
 
-.hide {
+/* .hide {
   display: none;
 }
 
 #history,
 #news {
   /* margin: 0 1rem; */
-}
-
-.row {
-  /* margin: 2rem; */
-}
-
-.card {
-  min-width: 400px;
 }
