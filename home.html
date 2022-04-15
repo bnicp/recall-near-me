@@ -31,10 +31,9 @@
 </head>
 
 <body>
-  <header class="bgimg w3-display-container w3-grayscale-min" id="home"></header>
 
   <div class="w3-top w3-sepia-min w3-hover-sepia">
-    <div class="w3-bar w3-white w3-padding w3-card w3-padding-large" style="letter-spacing: 4px">
+    <div class="w3-white w3-padding w3-padding-large" style="letter-spacing: 4px">
       <a href="#home" class="w3-bar-item w3-button">FDA Food Recall</a>
       <!-- Right-sided navbar links. Hide them on small screens -->
       <div class="w3-right w3-hide-small">
@@ -50,6 +49,10 @@
       </div>
     </div>
   </div>
+  
+  <header class="bgimg w3-display-container w3-grayscale-min" id="home"></header>
+
+
 
   <!-- modal -->
   <!-- <div id="id01" class="w3-modal">
@@ -96,8 +99,9 @@
           <p>Date Reported</p>
           <label>From:
             <input type="date" id="srchFrmDt" name="rclfrom" />
-            To: <input type="date" id="srchToDt" name="rclto" />
+            <div class="w3-section">To: <input type="date" id="srchToDt" name="rclto" />
           </label>
+        </div>
         <div class="w3-section">
           <button type="submit" class="w3-button w3-dark-grey w3-hover-dark-grey" id="search">
             Submit
@@ -114,12 +118,12 @@
           class="w3-button w3-display-topright">×</span>
         <h3>Contact Info</h3>
         <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large "></i>Designer</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large"></i>Atlanta, GA</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large"></i>example@mail.com</p>
-          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large"></i>678-555-0112</p>
-      <footer class="w3-container w3-theme-l1">
-        <p>We'd love to hear from you!</p>
-      </footer>
+        <p><i class="fa fa-home fa-fw w3-margin-right w3-large"></i>Atlanta, GA</p>
+        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large"></i>example@mail.com</p>
+        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large"></i>678-555-0112</p>
+        <footer class="w3-container w3-theme-l1">
+          <p>We'd love to hear from you!</p>
+        </footer>
     </div>
   </div>
 
@@ -175,25 +179,27 @@
     </span>
   </div>
 
+  <!-- Footer -->
+  <footer class="w3-container w3-bottom w3-padding-16 w3-center w3-light-grey w3-large">
+    <i class="fa fa-facebook-official w3-hover-opacity w3-sepia"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+
+    <p class="w3-medium">
+      Powered by
+      <a href="" target="_blank">@Team13A</a>
+    </p>
+  </footer>
+
   <script src="https://code.jscharting.com/latest/jscharting.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="./assets/js/home.js"></script>
 </body>
 
-<!-- Footer -->
-<footer class="w3-container w3-bottom w3-padding-16 w3-center w3-light-grey w3-large">
-  <i class="fa fa-facebook-official w3-hover-opacity w3-sepia"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
 
-  <p class="w3-medium">
-    Powered by
-    <a href="" target="_blank">@Team13A</a>
-  </p>
-</footer>
 
 </html>
