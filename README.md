@@ -14,20 +14,10 @@ FDA Recall Search is a web application that returns cusomized information about 
         <li><a href="#powered-by">Powered By</a></li>
       </ul>
     </li>
-    <!-- <li>
-      <a href="#powered-by">Getting Started</a>
-      <!-- <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul> -->
-    <!-- </li> --> 
-    <!-- <li><a href="#roadmap">Roadmap</a></li> -->
     <li><a href="#contributors">Contributors</a></li>
     <li><a href="#demo">Demo</a></li>
     <li><a href="#link-to-application">Link to Application</a></li>
     <li><a href="#license">License</a></li>
-    <!-- <li><a href="#contact">Contact</a></li> -->
-    <!-- <li><a href="#acknowledgments">Acknowledgments</a></li> -->
   </ol>
 </details>
 <br>
@@ -43,9 +33,6 @@ This web application would enable a user to search for FDA recalls by State , Ci
 
 ### Built With
 
-<!-- * [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Bootstrap](https://getbootstrap.com) -->
 * [W3 schools CSS](https://www.w3schools.com/css/)
 * [JQuery](https://jquery.com)
 * [Vanilla Javascript](http://vanilla-js.com/)
