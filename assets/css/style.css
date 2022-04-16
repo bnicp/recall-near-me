@@ -54,6 +54,10 @@ a {
   font-size: 1rem;
 }
 
+.fntBold{
+  font-weight:bold;
+}
+
 /* #displayResults {
   overflow: scroll;
 } */
@@ -65,7 +69,3 @@ a {
   /* min-height: 350px; */
 /*} */
 
-.fntBold{
-
-  font-weight:bold;
-}

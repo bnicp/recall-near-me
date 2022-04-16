@@ -101,9 +101,19 @@
     </div>
   </div>
 
+  <div id="mdlHover" class="w3-modal">
+    <div class="w3-modal-content w3-animate-opacity" style="height: 200px;
+    width: 400px">
+      <div class="w3-container" >
+        <span onclick="document.getElementById('mdlHover').style.display='none'"
+        class="w3-button w3-display-topleft">&times;</span>
+        <canvas id="chartModal"></canvas>  
+      </div>   
+    </div>
+  </div>
+
   <!-- Page content -->
   <div class="w3-content" style="max-width:2000px">
-
     <!-- About Section -->
     <div class="w3-row w3-padding-64" id="about">
       <div class="w3-col m4 w3-padding-large w3-hide-small">
@@ -111,26 +121,30 @@
           <h3>Welcome!</h3>
           <br />
           <p class="w3-left-align">
-            In order to stay up to date with FDA Recalls in your area you can use this 
-            site to check current recalls on your choice of product. Use the search box 
-            to bring up current recall data and then search current news articles from 
-            the New York Times in order to see if there is any news about the recalling 
-            company (or other stuff) that has made national news.
+            Food recalls protect the public from products that may cause injury, illness or even death. Food products are recalled to remove them from the marketplace because there is reason to believe the products may be <span style="font-weight:bold">
+              <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">defective</button>, 
+              <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">adulterated</button>, <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">contaminated</button>, 
+              <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">misbranded</button> or <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">mislabeled</button></span>. The U.S. Food and Drug Administration (FDA) recalls foods that have been contaminated by bacteria, foreign objects or undisclosed allergens.  
           </p>
           <br />
           <p class="w3-left-align">
-            By using the FDA Search API blah blah blah something about visualizations 
-            and what they mean here. 
+            <h3>Most <span style="font-weight:bold"> <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">common reasons </button></span>for a food recall</h3>
+            <ul class="w3-left-align">
+              <li>Foods are contaminated with a foodborne pathogens such as E. coli or Salmonella.</li>
+              <li>Foods contain an undeclared food allergen. A food allergen ingredient is in the product but not listed on the ingredient label.</li>
+              <li>Contains physical contaminants such as plastic, glass or metal fragments.</li>
+            </ul>
           </p>
           <br />
           <p class="w3-right-align" id="mapHoverInfo">
             <i class="fa fa-map w3-hover-opacity"></i>
-            Hover over map to get info on total recalls till date
+            Hover over map to get info on total recalls year to date
           </p>
         </span>
       </div>
 
-      <div class="w3-col m8 w3-padding-large w3-hide-small w3-display-center" id="chartDiv" style="height: 640px"></div>
+      <div class="w3-display-container w3-right w3-padding-64 w3-hide-small" style="width: 50%; height: 85%"  id="chartDiv"></div>
+      <!-- <div class="w3-col m8 w3-padding-large w3-hide-small w3-display-center" id="chartDiv" style="height: 640px"></div> -->
     </div>
 
     <!-- Footer -->
@@ -146,6 +160,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript" src="https://code.jscharting.com/latest/modules/maps.js"></script> 
     <script src="./assets/js/script.js"></script>
-    <!-- <script src="./assets/js/script.js"></script> -->
 </body>
 </html>
