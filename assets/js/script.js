@@ -97,7 +97,8 @@ function getApi() {
     });
 
   var requestUrl1 =
-    "https://api.fda.gov/food/enforcement.json?search=reason_for_recall:milk&count=report_date&sort=report_date:desc&limit=10";
+    //"https://api.fda.gov/food/enforcement.json?search=reason_for_recall:milk&count=report_date&sort=report_date:desc&limit=10";
+    "https://api.fda.gov/food/enforcement.json?search=reason_for_recall:milk&count=city.exact&sort=report_date:desc&limit=5";
   var xValues = [];
   var yValues = [];
   fetch(requestUrl1)

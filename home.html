@@ -5,6 +5,7 @@
   <title>W3.CSS Template</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -16,14 +17,6 @@
       font-family: "Inconsolata", sans-serif;
     }
 
-    /*
-      .bgimg {
-        background-position: center;
-        background-size: cover;
-        background-image: url("/w3images/coffeehouse.jpg");
-        min-height: 75%;
-      }
-*/
     .menu {
       display: none;
     }
@@ -144,41 +137,74 @@ To: <input type="date" id="srchToDt" name="rclto" />
 
 
   <!-- adding maps-->
-  <div class="w3-display-right w3-padding-medium w3-hide-small w3-sepia-min" id="chartDiv"
-    style="width: 60%; height: 75%"></div>
+ <!-- <div class="w3-row w3-padding-64">-->
+ <!-----<div class="w3-col  w3-cell w3-right w3-center w3-hide-small w3-sepia-min" id="chartDiv"
+ ></div><!--style="width: 60%; height: 75%"-->
+ 
+ <!-- 
+Modal pop ups on hover over
 
-  <div class="w3-display-middle w3-display-left w3-padding-large" style="width: 40%; height: 80%">
-    <span class="w3-tag w3-theme-lime w3-round-large w3-opacity">
-      <p style="text-align: left">
-        We have created a FDA recall website. Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident.
-      </p>
-      <br /><br />
-      <p style="text-align: left">
-        We have created a FDA recall website. Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident.
-      </p>
+ -->
 
-      <p style="text-align: right; font-size: 10px">
-        <i class="fa fa-map w3-hover-opacity"></i>
-        Hover over map to get info on total recalls till date
-      </p>
-    </span>
+ <div id="mdlHover" class="w3-modal">
+  <div class="w3-modal-content w3-animate-opacity" style="height: 200px;
+  width: 400px">
+    <div class="w3-container" >
+      <span onclick="document.getElementById('mdlHover').style.display='none'"
+      class="w3-button w3-display-topleft">&times;</span>
+      <canvas id="chartModal"></canvas>
+      
+      </div>
+     
+    </div>
   </div>
+</div>
+
+
+
+
+
+  
+    <div class=" w3-display-container w3-right  w3-padding-64 w3-hide-small  " style="width: 50%; height: 85%"  id="chartDiv"></div>
+  
+
+    <div class=" w3-display-container w3-right  w3-padding-64 " style="width: 50%; height: 75%">
+
+      <span class=" w3-card-4 w3-theme-lime w3-round-xlarge w3-opacity w3-padding">
+        <h3>Do Not Ignore Food Recalls</h3>
+        <p class ="w3-padding" style="text-align: left">
+          Food recalls protect the public from products that may cause injury, illness or even death. Food products are recalled to remove them from the marketplace because there is reason to believe the products may be <span style="font-weight:bold">
+            <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">defective</button>, 
+            <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">adulterated</button>, <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">contaminated</button>, 
+            <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">misbranded</button> or <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">mislabeled</button></span>. The U.S. Food and Drug Administration (FDA) recalls foods that have been contaminated by bacteria, foreign objects or undisclosed allergens.
+        </p>
+        <br />
+        <p style="text-align: left">
+          <h3>Most <span style="font-weight:bold"> <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">common reasons </button></span>for a food recall</h3>
+          <ul>
+          <li>Foods are contaminated with a foodborne pathogens such as E. coli or Salmonella.</li>
+          <li>Foods contain an undeclared food allergen. A food allergen ingredient is in the product but not listed on the ingredient label.</li>
+          <li>Contains physical contaminants such as plastic, glass or metal fragments.</li>
+        </ul>
+        </p>
+    
+          <p style="text-align: right; font-size: 10px">
+            <i class="fa fa-map w3-hover-opacity"></i>
+            Hover over map to get info on total recalls till date
+          </p>
+        </span>
+      </div>
+
+
+
+ 
+ 
+ 
 
   <script src="https://code.jscharting.com/latest/jscharting.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  
   <script src="./assets/js/home.js"></script>
 </body>
 
