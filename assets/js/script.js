@@ -8,6 +8,10 @@ var lastUserSearch = {
   toDate: "",
 };
 
+function init() {
+  getMap();
+}
+
 function getMap() {
   var requestUrl1 =
     "https://api.fda.gov/food/enforcement.json?count=state.exact";
