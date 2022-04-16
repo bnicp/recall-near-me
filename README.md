@@ -22,9 +22,9 @@ FDA Recall Search is a web application that returns cusomized information about 
       </ul> -->
     <!-- </li> --> 
     <!-- <li><a href="#roadmap">Roadmap</a></li> -->
-    <li><a href="#contributors">Contributing</a></li>
+    <li><a href="#contributors">Contributors</a></li>
     <li><a href="#demo">Demo</a></li>
-    <li><a href="#link-to-Application">Link to Application</a></li>
+    <li><a href="#link-to-application">Link to Application</a></li>
     <li><a href="#license">License</a></li>
     <!-- <li><a href="#contact">Contact</a></li> -->
     <!-- <li><a href="#acknowledgments">Acknowledgments</a></li> -->
@@ -46,8 +46,9 @@ This web application would enable a user to search for FDA recalls by State , Ci
 <!-- * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
 * [Bootstrap](https://getbootstrap.com) -->
-* [W3 schools CSS](https://jquery.com)
+* [W3 schools CSS](https://www.w3schools.com/css/)
 * [JQuery](https://jquery.com)
+* [Vanilla Javascript](http://vanilla-js.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -59,7 +60,7 @@ This web application would enable a user to search for FDA recalls by State , Ci
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-## ContributorsA
+## Contributors
 This Project was created by:
 * [Brandi Peters](https://github.com/bnicp)
 * [Heather Noyes](https://github.com/heatherknoyes)
@@ -75,7 +76,7 @@ Below is a video showing how to use the web application
 
 ## Link to Application
 * Below is a url to the functioning application <br>
-[FDA food recall search](https://github.com/bnicp)
+[FDA food recall search](https://bnicp.github.io/recall-near-me/) 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -84,10 +85,3 @@ Below is a video showing how to use the web application
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- ## Contact
-
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-<p align="right">(<a href="#top">back to top</a>)</p> -->
