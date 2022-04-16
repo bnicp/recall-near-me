@@ -281,15 +281,9 @@ function w3_close() {
 
 // Event listener for whole page
 document.addEventListener("click", function (event) {
-  if (event.target.classList.contains("recallFirm")) {
-    topicChoice.classList.remove("hide");
-    fdaContainer.classList.remove("w3-twothird");
-    fdaContainer.classList.add("w3-third");
-    nytContainer.classList.remove("hide");
-    getNYTArticles(event);
-  }
+  if (event.target.id === "searchModalBtn") {
+    window.location.replace("index.html");
 
-  if (event.target.id === "search") {
     event.preventDefault();
     if (!topicChoice.classList.contains("hide")) {
       topicChoice.classList.add("hide");
@@ -301,5 +295,17 @@ document.addEventListener("click", function (event) {
 
     fdaContainer.classList.remove("hide");
     getApi();
+  }
+
+  if (event.target.id === "websiteTitle") {
+    window.location.replace("home.html");
+  }
+
+  if (event.target.classList.contains("recallFirm")) {
+    topicChoice.classList.remove("hide");
+    fdaContainer.classList.remove("w3-twothird");
+    fdaContainer.classList.add("w3-third");
+    nytContainer.classList.remove("hide");
+    getNYTArticles(event);
   }
 });
