@@ -8,6 +8,10 @@ var lastUserSearch = {
   toDate: "",
 };
 
+function init() {
+  getMap();
+}
+
 function getMap() {
   var requestUrl1 =
     "https://api.fda.gov/food/enforcement.json?count=state.exact";
@@ -69,7 +73,7 @@ document.addEventListener("click", function (event) {
     lastUserSearch.fromDate = document.getElementById("srchFrmDt").value.trim();
     lastUserSearch.toDate = document.getElementById("srchToDt").value.trim();
     localStorage.setItem("lastUserSearch", JSON.stringify(lastUserSearch));
-    window.location.replace("index.html");
+    window.location.replace("search.html");
   }
 });
 

@@ -174,7 +174,7 @@ document.addEventListener("click", function (event) {
   // When the website title screen is clicked on then it will take you
   // back to the home page
   if (event.target.id === "websiteTitle") {
-    window.location.replace("home.html");
+    window.location.replace("index.html");
   }
 
   // When the recalling firm is clicked on then the NYT API is called
