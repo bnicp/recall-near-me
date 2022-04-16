@@ -158,7 +158,7 @@ function getNYTArticles(event) {
   var queryParam = event.target.textContent;
   queryParam = queryParam.replace(/\s/g, "%20");
   var nytAPIKey = "IpBihDlOE1r2nQVdTm0GsZyMB2Ba0BGQ";
-  var nytRequestUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${queryParam}&api-key=${nytAPIKey}`;
+  var nytRequestUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${queryParam}&sort=newest&api-key=${nytAPIKey}`;
   var nytArticle = "";
   fetch(nytRequestUrl)
     .then(function (response) {
@@ -177,16 +177,16 @@ function getNYTArticles(event) {
           } else {
             var abstract = ``;
           }
-          nytArticle = `  <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding">
+          nytArticle = `<div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding">
           <h4 class="recallFirm w3-hover-opacity w3-bar-block w3-xlarge w3-light-grey w3-text-black">
           <a href="${
             articleArray[i].web_url
-          }" target="popup" class="w3-medium w3-left-align w3-padding"><span class="w3-large">${title}</span></a></h4>
+          }" target="popup" class="w3-medium w3-left-align w3-padding w3-large">${title}</a></h4>
           <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">Published:</span> ${moment(
             articleArray[i].pub_date
           ).format("MM/DD/YYYY")}</p> 
                 ${abstract}
-                </div>`;
+          </div>`;
           topicChoice.innerHTML += nytArticle;
         }
       } else {
