@@ -26,7 +26,7 @@ FDA Recall Search is a web application that returns cusomized information about 
     <li><a href="#demo">Demo</a></li>
     <li><a href="#link-to-Application">Link to Application</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <!-- <li><a href="#contact">Contact</a></li> -->
     <!-- <li><a href="#acknowledgments">Acknowledgments</a></li> -->
   </ol>
 </details>
@@ -36,22 +36,16 @@ FDA Recall Search is a web application that returns cusomized information about 
 
 ![Product Name Screen Shot](./assets/images/readme-images/title-image.png)
 
-This web application would enable a user to Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis leo eget neque ornare finibus. Cras pellentesque laoreet erat quis eleifend. Curabitur mollis nisl ac orci varius, sed rutrum ex posuere. Nunc auctor est ac semper accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis convallis pretium augue eget posuere. Nam bibendum justo elit, id consectetur arcu viverra et. Nunc nisl dolor, fringilla quis consequat non, rutrum et augue. Morbi lacinia risus nec sapien varius mollis. Pellentesque tristique nisi non pellentesque vestibulum. Suspendisse volutpat urna nec odio commodo, vitae congue mauris lobortis. Nullam vel venenatis ante. Praesent tempus neque a sollicitudin maximus. Duis dapibus libero neque, vel rutrum tortor viverra non. Proin eleifend lacus lacus, porta faucibus purus euismod et.
-
-Vivamus dolor massa, rhoncus id ante ac, pellentesque gravida elit. Nullam volutpat libero nec ante vulputate, sed laoreet est molestie. Nulla elit urna, tincidunt id dui ac, pretium faucibus justo. Fusce tristique suscipit lectus, lacinia luctus lectus. Curabitur id nisi nec nisl commodo blandit. Praesent interdum velit lobortis sagittis varius. In faucibus sed risus vitae sodales.
-
-Integer quis dui elementum, varius ante ac, tincidunt dui. Fusce ac molestie dui. Aliquam tincidunt lacus sed urna mollis, eget efficitur enim elementum. Sed ut dictum libero. Aliquam facilisis rhoncus eros nec dictum. Duis neque urna, suscipit non ligula sed, suscipit faucibus leo. Donec quis lectus lobortis, fringilla massa vitae, imperdiet dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean cursus et est quis consectetur. Donec dictum porta dolor, non tempor mi facilisis quis. Integer semper lacus ut felis placerat, quis scelerisque diam pretium. Integer et vulputate dui. Pellentesque vel ultrices neque. Suspendisse quam turpis, finibus nec sagittis eu, mattis condimentum diam.
-
-Ut commodo bibendum nisl, sit amet tempor
+This web application would enable a user to search for FDA recalls by State , City or product decription. A result page is then created that displays the most recent articles from New York Times about said recalls and a map showing the total number of recals in each states and a bar chat showing the top three city where the 
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
+<!-- * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
-* [Bootstrap](https://getbootstrap.com)
+* [Bootstrap](https://getbootstrap.com) -->
 * [W3 schools CSS](https://jquery.com)
 * [JQuery](https://jquery.com)
 
@@ -59,13 +53,13 @@ Ut commodo bibendum nisl, sit amet tempor
 
 ### Powered By
 
-* [New York Times API](https://nextjs.org/)
-* [FDA API](https://reactjs.org/)
+* [New York Times API](https://developer.nytimes.com/apis)
+* [FDA API](https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-## Contributors
+## ContributorsA
 This Project was created by:
 * [Brandi Peters](https://github.com/bnicp)
 * [Heather Noyes](https://github.com/heatherknoyes)
@@ -91,6 +85,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Contact
+<!-- ## Contact
+
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+
+<p align="right">(<a href="#top">back to top</a>)</p> -->
