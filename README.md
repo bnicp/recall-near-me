@@ -1,9 +1,11 @@
-<div id="top"></div>
+<!-- id to bring user back to the top of page -->
+<div id="top"></div> 
 
 # FDA Recall Search
 
 FDA Recall Search is a web application that returns cusomized information about FDA recalls near you!
 
+<!-- table of content for easy navigation -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -22,6 +24,7 @@ FDA Recall Search is a web application that returns cusomized information about 
 </details>
 <br>
 
+<!-- about the preject -->
 ## About The Project
 
 ![Product Name Screen Shot](./assets/images/readme-images/title-image.png)
@@ -46,7 +49,7 @@ This web application would enable a user to search for FDA recalls by State , Ci
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
+<!-- Contributors -->
 ## Contributors
 This Project was created by:
 * [Brandi Peters](https://github.com/bnicp)
@@ -56,17 +59,20 @@ This Project was created by:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- Demo and how to use -->
 ## Demo
 Below is a video showing how to use the web application 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- link to deployed application -->
 ## Link to Application
-* Below is a url to the functioning application <br>
+* Below is a url to the deployed application <br>
 [FDA food recall search](https://bnicp.github.io/recall-near-me/) 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- License -->
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
