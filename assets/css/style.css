@@ -50,6 +50,10 @@ a {
   display: none;
 }
 
+#mapHoverInfo {
+  font-size: 1rem;
+}
+
 /* #displayResults {
   overflow: scroll;
 } */
