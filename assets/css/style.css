@@ -14,30 +14,48 @@
   padding: 0;
   margin: 0;
   font-size: large;
+  font-family: "Inconsolata", sans-serif;
 }
 
-html {
+html, body {
+  height: 100%;
   font-size: 62.5%;
   text-align: center;
   background-color: var(--light-background);
 }
 
-/* header styling */
-header {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+body {
   display: flex;
-  justify-content: center;
-  height: 6rem;
-  line-height: 2rem;
-  text-align: center;
-  font-size: 4rem;
-  font-weight: bolder;
-  position: relative;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+  margin-top: 2rem;
 }
 
 .recallFirm:hover {
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hide {
+  display: none;
+}
+
+#mapHoverInfo {
+  font-size: 1rem;
+}
+
+.fntBold{
+  font-weight:bold;
 }
 
 /* #displayResults {
@@ -51,19 +69,3 @@ header {
   /* min-height: 350px; */
 /*} */
 
-.hide {
-  display: none;
-}
-
-#history,
-#news {
-  /* margin: 0 1rem; */
-}
-
-.row {
-  /* margin: 2rem; */
-}
-
-.card {
-  min-width: 400px;
-}

@@ -5,27 +5,29 @@
   <title>FDA RECALLS</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/style.css"/>
 </head>
 
 <body>
-  <!-- nav bar at top -->
-  <header>
+
+   <!-- nav bar at top -->
+   <header>
     <div class="w3-top">
       <div class="w3-bar w3-teal w3-padding w3-card" style="letter-spacing: 4px">
-        <a href="#home" class="w3-bar-item w3-button" id="websiteTitle">FDA Recalls</a>
+        <a class="w3-bar-item w3-button" id="websiteTitle">FDA Recalls</a>
         <!-- Right-sided navbar links. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
           <button onclick="document.getElementById('searchModal').style.display='block'" class="w3-button">
             Search
           </button>
-          <button onclick="document.getElementById('contactModal').style.display='block'" class="w3-button">
+          <button onclick="document.getElementById('id03').style.display='block'" class="w3-button">
             Contact Us
           </button>
-          <button onclick="document.getElementById('supportModal').style.display='block'" class="w3-button">
+          <button onclick="document.getElementById('id04').style.display='block'" class="w3-button">
             Support Us
           </button>
         </div>
@@ -38,7 +40,7 @@
     <div class="w3-modal-content w3-card-4 w3-animate-top">
       <header class="w3-container w3-theme-l1">
         <span onclick="document.getElementById('searchModal').style.display='none'"
-      class="w3-button w3-display-topright w3-dark-gray">&times;</span>
+          class="w3-button w3-display-topright">×</span>
         <h2>Search By:</h2>
         <div class="w3-section">
           <input class="w3-input" type="text" id="srchState" placeholder="Ex: Georgia" />
@@ -67,11 +69,11 @@
     </div>
   </div>
 
-  <div id="contactModal" class="w3-modal">
+  <div id="id03" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-top">
       <header class="w3-container w3-theme-l1">
-        <span onclick="document.getElementById('contactModal').style.display='none'"
-      class="w3-button w3-display-topright w3-dark-gray">&times;</span>
+        <span onclick="document.getElementById('id03').style.display='none'"
+          class="w3-button w3-display-topright">×</span>
         <h3>Contact Info</h3>
         <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large "></i>Designer</p>
         <p><i class="fa fa-home fa-fw w3-margin-right w3-large"></i>Atlanta, GA</p>
@@ -83,11 +85,11 @@
     </div>
   </div>
 
-  <div id="supportModal" class="w3-modal">
+  <div id="id04" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-top">
       <header class="w3-container w3-theme-l1">
-        <span onclick="document.getElementById('supportModal').style.display='none'"
-      class="w3-button w3-display-topright w3-dark-gray">&times;</span>
+        <span onclick="document.getElementById('id04').style.display='none'"
+          class="w3-button w3-display-topright">×</span>
         <h3>Support Us</h3>
         <h5>Ways you can contribute:</h5>
       </header>
@@ -101,6 +103,43 @@
     </div>
   </div>
 
+<<<<<<< HEAD:search.html
+  <!-- page content -->
+  <main>
+    <div style="height:75px"></div>
+
+    <div class="w3-content" style="max-width:2000px">
+      <div class="w3-row-padding w3-center w3-margin-top">
+        <div id="fdaResults">
+          <div class="w3-card w3-container">
+            <div id="displayResults"></div>
+          </div>
+        </div>
+
+        <div id="nytResults" class="w3-half hide">
+          <div class="w3-card w3-container">
+            <div id="displayNYT"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:75px"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w3-center w3-dark-grey w3-padding-32">
+    <p class="w3-medium">
+      Powered by Team13A
+    </p>
+  </footer>
+
+  <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script type="text/javascript" src="https://code.jscharting.com/latest/modules/maps.js"></script> 
+  <script src="./assets/js/search.js"></script>
+=======
   <div id="mdlHover" class="w3-modal">
     <div class="w3-modal-content w3-animate-opacity" style="height: 200px;
     width: 400px">
@@ -142,23 +181,25 @@
           </p>
         </span>
       </div>
-
+      
       <div class="w3-display-container w3-right w3-padding-64 w3-hide-small" style="width: 50%; height: 85%"  id="chartDiv"></div>
-      <!-- <div class="w3-col m8 w3-padding-large w3-hide-small w3-display-center" id="chartDiv" style="height: 640px"></div> -->
-    </div>
+      
+    </div>  
+  </div>
 
-    <!-- Footer -->
-    <footer class="w3-center w3-dark-grey w3-padding-32">
-      <p class="w3-medium">
-        Powered by Team13A
-      </p>
-    </footer>
+<!-- Footer -->
+  <footer class="w3-center w3-dark-grey w3-padding-32">
+    <p class="w3-medium">
+      Powered by Team13A
+    </p>
+  </footer>
 
-
-    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script type="text/javascript" src="https://code.jscharting.com/latest/modules/maps.js"></script> 
-    <script src="./assets/js/script.js"></script>
+  <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script type="text/javascript" src="https://code.jscharting.com/latest/modules/maps.js"></script>   
+  <script src="./assets/js/home.js"></script>
+>>>>>>> main:home.html
 </body>
+
 </html>

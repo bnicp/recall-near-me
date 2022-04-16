@@ -24,7 +24,7 @@ FDA Recall Search is a web application that returns cusomized information about 
 </details>
 <br>
 
-<!-- about the preject -->
+<!-- about the project -->
 ## About The Project
 
 ![Product Name Screen Shot](./assets/images/readme-images/title-image.png)
