@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>W3.CSS Template</title>
+  <title>FDA RECALLS</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -15,41 +15,30 @@
       height: 100%;
       font-family: "Inconsolata", sans-serif;
     }
-
-    /*
-      .bgimg {
-        background-position: center;
-        background-size: cover;
-        background-image: url("/w3images/coffeehouse.jpg");
-        min-height: 75%;
-      }
-*/
-    .menu {
-      display: none;
-    }
   </style>
 </head>
 
 <body>
-  <header class="bgimg w3-display-container w3-grayscale-min" id="home"></header>
-
-  <div class="w3-top w3-sepia-min w3-hover-sepia">
-    <div class="w3-white w3-padding w3-padding-large" style="letter-spacing: 4px">
-      <a href="#home" class="w3-bar-item w3-button">FDA Food Recall</a>
-      <!-- Right-sided navbar links. Hide them on small screens -->
-      <div class="w3-right w3-hide-small">
-        <button onclick="document.getElementById('id02').style.display='block'" class="w3-button">
-          Search
-        </button>
-        <button onclick="document.getElementById('id03').style.display='block'" class="w3-button">
-          Contact Us
-        </button>
-        <button onclick="document.getElementById('id04').style.display='block'" class="w3-button">
-          Support Us
-        </button>
+  <!-- nav bar at top -->
+  <header>
+    <div class="w3-top">
+      <div class="w3-bar w3-teal w3-padding w3-card" style="letter-spacing: 4px">
+        <a href="#home" class="w3-bar-item w3-button">FDA Recalls</a>
+        <!-- Right-sided navbar links. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+          <button onclick="document.getElementById('id02').style.display='block'" class="w3-button">
+            Search
+          </button>
+          <button onclick="document.getElementById('id03').style.display='block'" class="w3-button">
+            Contact Us
+          </button>
+          <button onclick="document.getElementById('id04').style.display='block'" class="w3-button">
+            Support Us
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  </header>
 
   <!-- modals -->
   <div id="id02" class="w3-modal">
@@ -120,63 +109,57 @@
     </div>
   </div>
 
+  <!-- Page content -->
+  <div class="w3-content" style="max-width:2000px">
 
-  <!-- adding maps-->
-  <div class="w3-main w3-content w3-padding" style="margin-top:100px"></div>
-  <div class="w3-display-right w3-padding-medium w3-hide-small w3-sepia-min" id="chartDiv"
-    style="width: 60%; height: 75%"></div>
+    <!-- About Section -->
+    <div class="w3-row w3-padding-64" id="about">
+      <div class="w3-col m4 w3-padding-large w3-hide-small">
+        <span class="w3-tag w3-theme-lime w3-round-large w3-dark-gray">
+          <p style="text-align: left">
+            We have created a FDA recall website. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident.
+          </p>
+          <br /><br />
+          <p style="text-align: left">
+            We have created a FDA recall website. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident.
+          </p>
 
-  <div class="w3-display-middle w3-display-left w3-padding-large" style="width: 40%; height: 80%">
-    <span class="w3-tag w3-theme-lime w3-round-large w3-opacity">
-      <p style="text-align: left">
-        We have created a FDA recall website. Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident.
+          <p style="text-align: right; font-size: 10px">
+            <i class="fa fa-map w3-hover-opacity"></i>
+            Hover over map to get info on total recalls till date
+          </p>
+        </span>
+      </div>
+
+      <div class="w3-col m8 w3-padding-large w3-hide-small w3-display-center" id="chartDiv" style="height: 640px">
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-dark-grey w3-padding-32">
+      <p class="w3-medium">
+        Powered by
+        <a href="" target="_blank">@Team13A</a>
       </p>
-      <br /><br />
-      <p style="text-align: left">
-        We have created a FDA recall website. Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident.
-      </p>
+    </footer>
 
-      <p style="text-align: right; font-size: 10px">
-        <i class="fa fa-map w3-hover-opacity"></i>
-        Hover over map to get info on total recalls till date
-      </p>
-    </span>
-  </div>
-  <div class="w3-main w3-content w3-padding" style="margin-bottom:100px"></div>
 
-  <!-- Footer -->
-  <footer class="w3-container w3-bottom w3-padding-16 w3-center w3-light-grey w3-large w3-margin-top:100px">
-    <i class="fa fa-facebook-official w3-hover-opacity w3-sepia"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-
-    <p class="w3-medium">
-      Powered by
-      <a href="" target="_blank">@Team13A</a>
-    </p>
-  </footer>
-
-  <script src="https://code.jscharting.com/latest/jscharting.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="./assets/js/home.js"></script>
+    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script type="text/javascript" src="https://code.jscharting.com/latest/modules/maps.js"></script> 
+    <script src="./assets/js/home.js"></script>
 </body>
-
-
-
 </html>
