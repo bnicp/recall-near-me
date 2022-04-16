@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>FDA RECALLS</title>
+  <title>FDA FOOD RECALLS</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -16,7 +16,7 @@
   <header>
     <div class="w3-top">
       <div class="w3-bar w3-teal w3-padding w3-card" style="letter-spacing: 4px">
-        <a href="#home" class="w3-bar-item w3-button" id="websiteTitle">FDA Recalls</a>
+        <a href="#home" class="w3-bar-item w3-button" id="websiteTitle">FDA Food Recalls</a>
         <!-- Right-sided navbar links. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
           <button onclick="document.getElementById('searchModal').style.display='block'" class="w3-button">
@@ -38,7 +38,7 @@
     <div class="w3-modal-content w3-card-4 w3-animate-top">
       <header class="w3-container w3-theme-l1">
         <span onclick="document.getElementById('searchModal').style.display='none'"
-      class="w3-button w3-display-topright w3-dark-gray">&times;</span>
+      class="w3-button w3-display-topright w3-text-white" style="background-color: #2E5987">&times;</span>
         <h2>Search By:</h2>
         <div class="w3-section">
           <input class="w3-input" type="text" id="srchState" placeholder="Ex: Georgia" />
@@ -60,7 +60,7 @@
         </div>
         <br />
         <div class="w3-section">
-          <button type="submit" class="w3-button w3-dark-grey w3-hover-dark-grey" id="searchModalBtn">
+          <button type="submit" class="w3-button w3-hover-dark-grey w3-text-white" style="background-color: #2E5987" id="searchModalBtn">
             Submit
           </button>
         </div>
@@ -70,8 +70,8 @@
   <div id="contactModal" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-top">
       <header class="w3-container w3-theme-l1">
-        <!-- <span onclick="document.getElementById('contactModal').style.display='none'"
-      class="w3-button w3-display-topright w3-dark-gray">&times;</span> -->
+        <span onclick="document.getElementById('contactModal').style.display='none'"
+      class="w3-button w3-display-topright w3-text-white" style="background-color: #2E5987">&times;</span>
         <h3>Contact Info</h3>
         <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large "></i>Designer</p>
         <p><i class="fa fa-home fa-fw w3-margin-right w3-large"></i>Atlanta, GA</p>
@@ -87,7 +87,7 @@
     <div class="w3-modal-content w3-card-4 w3-animate-top">
       <header class="w3-container w3-theme-l1">
         <span onclick="document.getElementById('supportModal').style.display='none'"
-      class="w3-button w3-display-topright w3-dark-gray">&times;</span>
+      class="w3-button w3-display-topright w3-text-white" style="background-color: #2E5987">&times;</span>
         <h3>Support Us</h3>
         <h5>Ways you can contribute:</h5>
       </header>
@@ -103,7 +103,7 @@
 
   <div id="mdlHover" class="w3-modal">
     <div class="w3-modal-content w3-animate-opacity" style="height: 200px;
-    width: 400px">
+    width: 300px">
       <div class="w3-container" >
         <span onclick="document.getElementById('mdlHover').style.display='none'"
         class="w3-button w3-display-topleft">&times;</span>
@@ -114,36 +114,38 @@
 
   <!-- Page content -->
   <div class="w3-content" style="max-width:2000px">
-    <!-- About Section -->
-    <div class="w3-row w3-padding-64" id="about">
-      <div class="w3-col m4 w3-padding-large w3-hide-small">
-        <span class="w3-tag w3-theme-lime w3-round-large w3-dark-gray w3-padding">
-          <h3>Welcome!</h3>
-          <br />
-          <p class="w3-left-align">
-            Food recalls protect the public from products that may cause injury, illness or even death. Food products are recalled to remove them from the marketplace because there is reason to believe the products may be <span style="font-weight:bold">
-              <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">defective</button>, 
-              <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">adulterated</button>, <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">contaminated</button>, 
-              <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">misbranded</button> or <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">mislabeled</button></span>. The U.S. Food and Drug Administration (FDA) recalls foods that have been contaminated by bacteria, foreign objects or undisclosed allergens.  
+   <!-- About Section -->
+   <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-half w3-padding-large w3-hide-small">
+      <span class="w3-tag w3-theme-lime w3-round-large w3-padding" style="background-color: #2E5987">
+        <h3>Educate Yourself</h3>
+        <p class="w3-left-align w3-padding-16">
+          This site has been provided as an easy way for you, the consumer, to gather information about relevant U.S. Food and Drug Administration (FDA) recalls.</p>
+          <p class="w3-left-align w3-padding-16">
+          Food recalls can be extremely serious events and should be treated with caution when it comes to the products you purchase or may already have in your home.
           </p>
-          <br />
-          <p class="w3-left-align">
-            <h3>Most <span style="font-weight:bold"> <button onmouseover="document.getElementById('mdlHover').style.display='block'" class="w3-button w3-medium">common reasons </button></span>for a food recall</h3>
-            <ul class="w3-left-align">
-              <li>Foods are contaminated with a foodborne pathogens such as E. coli or Salmonella.</li>
-              <li>Foods contain an undeclared food allergen. A food allergen ingredient is in the product but not listed on the ingredient label.</li>
-              <li>Contains physical contaminants such as plastic, glass or metal fragments.</li>
-            </ul>
+<h3>What is a food recall?</h3>
+<p class="w3-left-align w3-padding-16">
+          Food may be pulled from the marketplace because the FDA deems it to be defective, adulterated, contaminated, misbranded, or mislabeled.
           </p>
-          <br />
-          <p class="w3-right-align" id="mapHoverInfo">
-            <i class="fa fa-map w3-hover-opacity"></i>
-            Hover over map to get info on total recalls year to date
-          </p>
-        </span>
-      </div>
+<h3>The most common reasons foods are recalled:</h3>
+<p class="w3-left-align w3-padding-16">
+  *contamination from E. coli, Salmonella, or other pathogens<br>
+  *undeclared ingredients that may cause food allergens<br>
+  *plastic, glass, metal, or other foreign objects
+</p>
+<h3>Let us help with this simple tool!</h3>
+        <p class="w3-left-align w3-padding-16">
+          Click the Search button in the top right of this page to put in your specifed criteria and see recalls by State, City, Product Description, and/or Date Recalled. Once the results populate, you will also be able to see any New York Times coverage on these events.
+        <br>
+        <p class="w3-right-align" id="mapHoverInfo">
+          <i class="fa fa-map w3-hover-opacity"></i>
+          Hover over map to get info on total recalls till date
+        </p>
+      </span>
+    </div>
 
-      <div class="w3-display-container w3-right w3-padding-64 w3-hide-small" style="width: 50%; height: 85%"  id="chartDiv"></div>
+      <div class="w3-half w3-display-container w3-hide-small" style="height: 600px"  id="chartDiv"></div>
       <!-- <div class="w3-col m8 w3-padding-large w3-hide-small w3-display-center" id="chartDiv" style="height: 640px"></div> -->
     </div>
 

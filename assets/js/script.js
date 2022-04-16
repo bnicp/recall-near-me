@@ -37,10 +37,10 @@ function getMap() {
         type: "map",
         defaultPoint: {
           label_text: "%stateCode",
-          tooltip: "<b>%name</b> <br/>Total Recalls: {%zValue}",
+          tooltip: "<br/>Total Recalls: {%zValue}",
         },
         //defaultSeries_shape_padding: 0.02,
-        series: [{ color: "#D0CE7D", points: getRandomPoints() }],
+        series: [{ color: "#009688", points: getRandomPoints() }],
       };
 
       var chart = JSC.chart("chartDiv", chartConfig);

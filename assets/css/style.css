@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --white: white;
   --black: black;
   --light-blue: rgb(97, 135, 188);
@@ -7,7 +7,7 @@
   --dark: #000000;
   --light: #eb764f;
   --background: #d9dcd6;
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -17,11 +17,12 @@
   font-family: "Inconsolata", sans-serif;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   font-size: 62.5%;
   text-align: center;
-  background-color: var(--light-background);
+  background-color: white;
 }
 
 body {
@@ -54,8 +55,8 @@ a {
   font-size: 1rem;
 }
 
-.fntBold{
-  font-weight:bold;
+.fntBold {
+  font-weight: bold;
 }
 
 /* #displayResults {
@@ -68,4 +69,3 @@ a {
   border: solid black 4px;
   /* min-height: 350px; */
 /*} */
-
