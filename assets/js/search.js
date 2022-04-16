@@ -5,6 +5,9 @@ var nytContainer = document.getElementById("nytResults");
 var fetchButton = document.getElementById("search");
 var topicChoice = document.getElementById("displayNYT");
 var lastUserSearch = JSON.parse(localStorage.getItem("lastUserSearch"));
+var contactModal = document.getElementById("contactModal");
+var searchModal = document.getElementById("searchModal");
+var supportModal = document.getElementById("supportModal");
 
 function init() {
   getApi();
@@ -186,5 +189,17 @@ document.addEventListener("click", function (event) {
     getNYTArticles(event);
   }
 });
+
+window.onclick = function (event) {
+  if (
+    event.target == contactModal ||
+    event.target == searchModal ||
+    event.target === supportModal
+  ) {
+    contactModal.style.display = "none";
+    searchModal.style.display = "none";
+    supportModal.style.display = "none";
+  }
+};
 
 init();
