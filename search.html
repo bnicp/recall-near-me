@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>FDA RECALLS</title>
+  <title>FDA FOOD RECALLS</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
@@ -14,20 +14,20 @@
 
 <body>
 
-   <!-- nav bar at top -->
-   <header>
+  <!-- nav bar at top -->
+  <header>
     <div class="w3-top">
       <div class="w3-bar w3-teal w3-padding w3-card" style="letter-spacing: 4px">
-        <a class="w3-bar-item w3-button" id="websiteTitle">FDA Recalls</a>
+        <a href="#home" class="w3-bar-item w3-button" id="websiteTitle">FDA Food Recalls</a>
         <!-- Right-sided navbar links. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
           <button onclick="document.getElementById('searchModal').style.display='block'" class="w3-button">
             Search
           </button>
-          <button onclick="document.getElementById('id03').style.display='block'" class="w3-button">
+          <button onclick="document.getElementById('contactModal').style.display='block'" class="w3-button">
             Contact Us
           </button>
-          <button onclick="document.getElementById('id04').style.display='block'" class="w3-button">
+          <button onclick="document.getElementById('supportModal').style.display='block'" class="w3-button">
             Support Us
           </button>
         </div>
@@ -40,7 +40,7 @@
     <div class="w3-modal-content w3-card-4 w3-animate-top">
       <header class="w3-container w3-theme-l1">
         <span onclick="document.getElementById('searchModal').style.display='none'"
-          class="w3-button w3-display-topright">×</span>
+      class="w3-button w3-display-topright w3-text-white" style="background-color: #2E5987">&times;</span>
         <h2>Search By:</h2>
         <div class="w3-section">
           <input class="w3-input" type="text" id="srchState" placeholder="Ex: Georgia" />
@@ -62,18 +62,18 @@
         </div>
         <br />
         <div class="w3-section">
-          <button type="submit" class="w3-button w3-dark-grey w3-hover-dark-grey" id="searchModalBtn">
+          <button type="submit" class="w3-button w3-hover-dark-grey w3-text-white" style="background-color: #2E5987" id="searchModalBtn">
             Submit
           </button>
         </div>
     </div>
   </div>
 
-  <div id="id03" class="w3-modal">
+  <div id="contactModal" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-top">
       <header class="w3-container w3-theme-l1">
-        <span onclick="document.getElementById('id03').style.display='none'"
-          class="w3-button w3-display-topright">×</span>
+        <span onclick="document.getElementById('contactModal').style.display='none'"
+      class="w3-button w3-display-topright w3-text-white" style="background-color: #2E5987">&times;</span>
         <h3>Contact Info</h3>
         <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large "></i>Designer</p>
         <p><i class="fa fa-home fa-fw w3-margin-right w3-large"></i>Atlanta, GA</p>
@@ -85,11 +85,11 @@
     </div>
   </div>
 
-  <div id="id04" class="w3-modal">
+  <div id="supportModal" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-top">
       <header class="w3-container w3-theme-l1">
-        <span onclick="document.getElementById('id04').style.display='none'"
-          class="w3-button w3-display-topright">×</span>
+        <span onclick="document.getElementById('supportModal').style.display='none'"
+      class="w3-button w3-display-topright w3-text-white" style="background-color: #2E5987">&times;</span>
         <h3>Support Us</h3>
         <h5>Ways you can contribute:</h5>
       </header>
@@ -100,6 +100,17 @@
       <footer class="w3-container w3-theme-l1">
         <p>Modal footer</p>
       </footer>
+    </div>
+  </div>
+
+  <div id="mdlHover" class="w3-modal">
+    <div class="w3-modal-content w3-animate-opacity" style="height: 200px;
+    width: 300px">
+      <div class="w3-container" >
+        <span onclick="document.getElementById('mdlHover').style.display='none'"
+        class="w3-button w3-display-topleft">&times;</span>
+        <canvas id="chartModal"></canvas>  
+      </div>   
     </div>
   </div>
 
