@@ -1,4 +1,7 @@
 Chart.defaults.global.legend.display = false;
+var contactModal = document.getElementById("contactModal");
+var searchModal = document.getElementById("searchModal");
+var supportModal = document.getElementById("supportModal");
 
 var lastUserSearch = {
   state: "",
@@ -75,9 +78,28 @@ document.addEventListener("click", function (event) {
     localStorage.setItem("lastUserSearch", JSON.stringify(lastUserSearch));
     window.location.replace("search.html");
   }
+
+  if (event.target.id === "contactBtn") {
+    // document.getElementById("contactModal").classList.remove("hide");
+  }
+
+  // if (event.target.id !== "contactModal") {
+  //   document.getElementById("contactModal").classList.add("hide");
+  // }
 });
 
-//document.getElementById("chartModal").innerHTML = "Chart goes here";
+window.onclick = function (event) {
+  if (
+    event.target == contactModal ||
+    event.target == searchModal ||
+    event.target === supportModal
+  ) {
+    contactModal.style.display = "none";
+    searchModal.style.display = "none";
+    supportModal.style.display = "none";
+  }
+};
+
 var varModal = "";
 
 document.addEventListener("mouseover", function (e) {
