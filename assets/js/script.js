@@ -73,7 +73,7 @@ document.addEventListener("click", function (event) {
     lastUserSearch.fromDate = document.getElementById("srchFrmDt").value.trim();
     lastUserSearch.toDate = document.getElementById("srchToDt").value.trim();
     localStorage.setItem("lastUserSearch", JSON.stringify(lastUserSearch));
-    window.location.replace("index.html");
+    window.location.replace("search.html");
   }
 });
 
