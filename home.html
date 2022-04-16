@@ -8,14 +8,7 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-  <style>
-    body,
-    html {
-      height: 100%;
-      font-family: "Inconsolata", sans-serif;
-    }
-  </style>
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
@@ -23,16 +16,16 @@
   <header>
     <div class="w3-top">
       <div class="w3-bar w3-teal w3-padding w3-card" style="letter-spacing: 4px">
-        <a href="#home" class="w3-bar-item w3-button">FDA Recalls</a>
+        <a href="#home" class="w3-bar-item w3-button" id="websiteTitle">FDA Recalls</a>
         <!-- Right-sided navbar links. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
-          <button onclick="document.getElementById('id02').style.display='block'" class="w3-button">
+          <button onclick="document.getElementById('searchModal').style.display='block'" class="w3-button">
             Search
           </button>
-          <button onclick="document.getElementById('id03').style.display='block'" class="w3-button">
+          <button onclick="document.getElementById('contactModal').style.display='block'" class="w3-button">
             Contact Us
           </button>
-          <button onclick="document.getElementById('id04').style.display='block'" class="w3-button">
+          <button onclick="document.getElementById('supportModal').style.display='block'" class="w3-button">
             Support Us
           </button>
         </div>
@@ -41,12 +34,12 @@
   </header>
 
   <!-- modals -->
-  <div id="id02" class="w3-modal">
+  <div id="searchModal" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-top">
       <header class="w3-container w3-theme-l1">
-        <span onclick="document.getElementById('id02').style.display='none'"
+        <span onclick="document.getElementById('searchModal').style.display='none'"
           class="w3-button w3-display-topright">×</span>
-        <h2>Search By</h2>
+        <h2>Search By:</h2>
         <div class="w3-section">
           <input class="w3-input" type="text" id="srchState" placeholder="Ex: Georgia" />
           <label>State</label>
@@ -59,26 +52,25 @@
           <input class="w3-input" type="text" id="srchProd" placeholder="Ex: Cheese" />
           <label>Product Description</label>
         </div>
+        <br />
         <div class="w3-section">
+          <label>From: <input type="date" id="srchFrmDt" name="rclfrom"/></label>
+          <label>To: <input type="date" id="srchToDt" name="rclto"/></label>
           <p>Date Reported</p>
-          <label>From:
-            <input type="date" id="srchFrmDt" name="rclfrom" />
-            To: <input type="date" id="srchToDt" name="rclto" />
-          </label>
-          </div>
+        </div>
+        <br />
         <div class="w3-section">
-          <button type="submit" class="w3-button w3-dark-grey w3-hover-dark-grey" id="search">
+          <button type="submit" class="w3-button w3-dark-grey w3-hover-dark-grey" id="searchModalBtn">
             Submit
           </button>
         </div>
     </div>
   </div>
-  </div>
 
-  <div id="id03" class="w3-modal">
+  <div id="contactModal" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-top">
       <header class="w3-container w3-theme-l1">
-        <span onclick="document.getElementById('id03').style.display='none'"
+        <span onclick="document.getElementById('contactModal').style.display='none'"
           class="w3-button w3-display-topright">×</span>
         <h3>Contact Info</h3>
         <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large "></i>Designer</p>
@@ -91,10 +83,10 @@
     </div>
   </div>
 
-  <div id="id04" class="w3-modal">
+  <div id="supportModal" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-top">
       <header class="w3-container w3-theme-l1">
-        <span onclick="document.getElementById('id04').style.display='none'"
+        <span onclick="document.getElementById('supportModal').style.display='none'"
           class="w3-button w3-display-topright">×</span>
         <h3>Support Us</h3>
         <h5>Ways you can contribute:</h5>
@@ -115,43 +107,36 @@
     <!-- About Section -->
     <div class="w3-row w3-padding-64" id="about">
       <div class="w3-col m4 w3-padding-large w3-hide-small">
-        <span class="w3-tag w3-theme-lime w3-round-large w3-dark-gray">
-          <p style="text-align: left">
-            We have created a FDA recall website. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident.
+        <span class="w3-tag w3-theme-lime w3-round-large w3-dark-gray w3-padding">
+          <h3>Welcome!</h3>
+          <br />
+          <p class="w3-left-align">
+            In order to stay up to date with FDA Recalls in your area you can use this 
+            site to check current recalls on your choice of product. Use the search box 
+            to bring up current recall data and then search current news articles from 
+            the New York Times in order to see if there is any news about the recalling 
+            company (or other stuff) that has made national news.
           </p>
-          <br /><br />
-          <p style="text-align: left">
-            We have created a FDA recall website. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident.
+          <br />
+          <p class="w3-left-align">
+            By using the FDA Search API blah blah blah something about visualizations 
+            and what they mean here. 
           </p>
-
-          <p style="text-align: right; font-size: 10px">
+          <br />
+          <p class="w3-right-align" id="mapHoverInfo">
             <i class="fa fa-map w3-hover-opacity"></i>
             Hover over map to get info on total recalls till date
           </p>
         </span>
       </div>
 
-      <div class="w3-col m8 w3-padding-large w3-hide-small w3-display-center" id="chartDiv" style="height: 640px">
-      </div>
+      <div class="w3-col m8 w3-padding-large w3-hide-small w3-display-center" id="chartDiv" style="height: 640px"></div>
     </div>
 
     <!-- Footer -->
     <footer class="w3-center w3-dark-grey w3-padding-32">
       <p class="w3-medium">
-        Powered by
-        <a href="" target="_blank">@Team13A</a>
+        Powered by Team13A
       </p>
     </footer>
 
@@ -161,5 +146,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript" src="https://code.jscharting.com/latest/modules/maps.js"></script> 
     <script src="./assets/js/home.js"></script>
+    <!-- <script src="./assets/js/script.js"></script> -->
 </body>
 </html>
