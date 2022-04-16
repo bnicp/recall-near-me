@@ -64,3 +64,8 @@ a {
   border: solid black 4px;
   /* min-height: 350px; */
 /*} */
+
+.fntBold{
+
+  font-weight:bold;
+}
