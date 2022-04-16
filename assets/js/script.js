@@ -181,7 +181,7 @@ function getNYTArticles(event) {
           <h4 class="recallFirm w3-hover-opacity w3-bar-block w3-xlarge w3-light-grey w3-text-black">
           <a href="${
             articleArray[i].web_url
-          }" target="popup" class="w3-medium w3-left-align w3-padding w3-large">${title}</a></h4>
+          }" target="popup" class="w3-medium w3-left-align w3-padding w3-xlarge">${title}</a></h4>
           <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">Published:</span> ${moment(
             articleArray[i].pub_date
           ).format("MM/DD/YYYY")}</p> 
