@@ -71,7 +71,7 @@ function getApi() {
         // <h4>${results[i].product_type} - ${results[i].recalling_firm}</h4>
         for (var i = 0; i < results.length; i++) {
           htmlCreate = ` <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding">
-          <h4 class="recallFirm w3-hover-opacity w3-bar-block w3-xlarge w3-light-grey w3-text-black">${
+          <h4 class="recallFirm w3-hover-opacity w3-bar-block w3-xlarge w3-dark-grey w3-text-white">${
             results[i].recalling_firm
           }</h4>
           <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">State:</span>  ${
@@ -178,7 +178,7 @@ function getNYTArticles(event) {
             var abstract = ``;
           }
           nytArticle = `<div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding">
-          <h4 class="recallFirm w3-hover-opacity w3-bar-block w3-xlarge w3-light-grey w3-text-black">
+          <h4 class="recallFirm w3-hover-opacity w3-bar-block w3-xlarge w3-dark-grey w3-text-white">
           <a href="${
             articleArray[i].web_url
           }" target="popup" class="w3-medium w3-left-align w3-padding w3-xlarge">${title}</a></h4>
