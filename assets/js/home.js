@@ -1,5 +1,13 @@
 Chart.defaults.global.legend.display = false;
 
+var lastUserSearch = {
+  state: "",
+  city: "",
+  product: "",
+  fromDate: "",
+  toDate: "",
+};
+
 function getMap() {
   var requestUrl1 =
     "https://api.fda.gov/food/enforcement.json?count=state.exact";
@@ -71,5 +79,17 @@ function getMap() {
       }
     });
 }
+
+document.addEventListener("click", function (event) {
+  if (event.target.id === "searchModalBtn") {
+    lastUserSearch.state = document.getElementById("srchState").value.trim();
+    lastUserSearch.city = document.getElementById("srchCity").value.trim();
+    lastUserSearch.product = document.getElementById("srchProd").value.trim();
+    lastUserSearch.fromDate = document.getElementById("srchFrmDt").value.trim();
+    lastUserSearch.toDate = document.getElementById("srchToDt").value.trim();
+    localStorage.setItem("lastUserSearch", JSON.stringify(lastUserSearch));
+    window.location.replace("index.html");
+  }
+});
 
 window.onload = getMap();
