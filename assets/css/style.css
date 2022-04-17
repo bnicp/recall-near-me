@@ -13,7 +13,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-size: large;
+ /*font-size: large;*/ /* commented this as map annotation font-size was getting over written. Map annotation font-size is set in the script.js*/
   font-family: "Inconsolata", sans-serif;
 }
 
@@ -23,6 +23,7 @@ body {
   font-size: 62.5%;
   text-align: center;
   background-color: white;
+  font-size: large;
 }
 
 body {
