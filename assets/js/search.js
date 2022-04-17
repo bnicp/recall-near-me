@@ -43,10 +43,12 @@ function getApi() {
     if (paramFrmDt != "" && paramToDt != "") {
       var url_5 = "report_date:" + "[" + paramFrmDt + "+TO+" + paramToDt + "]";
       urlArray.push(url_5);
+      
     } /*else if(paramFrmDt != ''  && paramToDt ==''){
     var url_5 = 'report_date:'+'['+paramFrmDt+']';
 }*/ else {
       // var url_5 = 'report_date:'+'['+paramToDt+']';
+      
     }
   }
   if (paramProd != "") {
@@ -66,14 +68,20 @@ function getApi() {
   // 'https://api.fda.gov/food/enforcement.json';
   //https://api.fda.gov/food/enforcement.json?search=reason_for_recall:peanut;
   //alert(requestUrl);
+ 
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       var results = data.results;
+      
       //console.log(results[0]['city']);
       var htmlCreate = "";
+/*** results is undefined if there is no fetch data. Below conditional check helps to load dynamic HTML elements only if  the fetch data set is not empty. Else return No results found */
+
+      if( results != undefined)
+      {
       if (results.length > 0) {
         // pulled this line out to test for NYT clickable entity
         // <h4>${results[i].product_type} - ${results[i].recalling_firm}</h4>
@@ -99,8 +107,10 @@ function getApi() {
           ).format("MM/DD/YYYY")}</span></p></div>`; //+ htmlCreate;
           eleContainer.innerHTML += htmlCreate;
         }
-      } else {
+      }
+     } else {
         eleContainer.innerHTML = "No Results Found";
+       
       }
     });
 }

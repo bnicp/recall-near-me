@@ -58,7 +58,12 @@ function getMap() {
         ],
       };
 
+   
+
+    
+    
       JSC.chart("chartDiv", chartConfig);
+
       var xNew = "";
       var yNew = "";
       function getRandomPoints() {
@@ -96,14 +101,19 @@ function getChart(varModal) {
     varModal +
     ".exact&sort=report_date:desc&limit=6";
 
+    var searchName = 'By Recalling Firm';
+
   if (varModal === "name_brand") {
+
     requestUrl1 =
       "https://api.fda.gov/food/event.json?count=products." +
       varModal +
       ".exact&limit=5";
+      searchName = 'By Brand Name';
   }
 
   if (varModal === "reactions") {
+    searchName = 'By Reactions';
     requestUrl1 =
       "https://api.fda.gov/food/event.json?count=" +
       varModal +
@@ -123,8 +133,17 @@ function getChart(varModal) {
         //alert(xValues);
         yValues.push(results[i].count);
       }
+      /*** canvas element removed from index.html. canvas element is added dynamically on page load and on button click events on categories. 
+       * This change prevents chart js data change on that is seen when hovered on bars
+       * 
+      */
+     document.getElementById("chartContainer").innerHTML='';
+      chartHTMLTemplate  = `<canvas id="chartModal" style="height: 100%"></canvas>`;
+      document.getElementById("chartContainer").innerHTML = chartHTMLTemplate;
 
-      new Chart("chartModal", {
+
+     
+      var chartBar = new Chart("chartModal", {
         type: "bar",
         data: {
           labels: xValues,
@@ -148,7 +167,7 @@ function getChart(varModal) {
           legend: { display: false },
           title: {
             display: true,
-            text: "Click above buttons to view top 4 recalls for selected category",
+            text: "Click above buttons to view top 4 recalls for selected category. Current selection: "+searchName,
             responsive: true,
           },
           scales: {
@@ -199,11 +218,14 @@ function getChart(varModal) {
           },
         },
       });
+     
+   
+
     });
 }
 
 document.addEventListener("click", function (event) {
-  event.stopPropagation();
+ // event.stopPropagation();
   if (event.target.id === "searchModalBtn") {
     lastUserSearch.state = document.getElementById("srchState").value.trim();
     lastUserSearch.city = document.getElementById("srchCity").value.trim();
@@ -223,20 +245,23 @@ document.addEventListener("click", function (event) {
       document.getElementById("srchFrmDt").value = lastUserSearch.fromDate;
       document.getElementById("srchToDt").value = lastUserSearch.toDate;
     }
-  } else if (event.target.innerHTML === "Recalling Firm") {
+  } else if (event.target.id=== "catFirm") {
+    
     varModal = "recalling_firm";
     getChart(varModal);
-  } else if (event.target.innerHTML === "Brand Name") {
+  } else if (event.target.id === "catBrnd") {
     varModal = "name_brand";
     getChart(varModal);
-  } else if (event.target.innerHTML === "Reactions") {
+  } else if (event.target.id === "catRctn") {
     varModal = "reactions";
     getChart(varModal);
   }
 });
 
 window.onclick = function (event) {
+ 
   if (
+
     event.target === contactModal ||
     event.target === searchModal ||
     event.target === supportModal
