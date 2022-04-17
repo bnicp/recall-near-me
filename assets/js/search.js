@@ -177,6 +177,19 @@ document.addEventListener("click", function (event) {
     getApi();
   }
 
+  if (event.target.id === "searchModalOpenBtn") {
+    event.preventDefault();
+    lastUserSearch = JSON.parse(localStorage.getItem("lastUserSearch"));
+    if (lastUserSearch) {
+      console.log("I MADE THIS BITCHES");
+      document.getElementById("srchState").value = lastUserSearch.state;
+      document.getElementById("srchCity").value = lastUserSearch.city;
+      document.getElementById("srchProd").value = lastUserSearch.product;
+      document.getElementById("srchFrmDt").value = lastUserSearch.fromDate;
+      document.getElementById("srchToDt").value = lastUserSearch.toDate;
+    }
+  }
+
   // When the website title screen is clicked on then it will take you
   // back to the home page
   if (event.target.id === "websiteTitle") {

@@ -212,6 +212,17 @@ document.addEventListener("click", function (event) {
     lastUserSearch.toDate = document.getElementById("srchToDt").value.trim();
     localStorage.setItem("lastUserSearch", JSON.stringify(lastUserSearch));
     window.location.replace("search.html");
+  } else if (event.target.id === "searchModalOpenBtn") {
+    event.preventDefault();
+    lastUserSearch = JSON.parse(localStorage.getItem("lastUserSearch"));
+    if (lastUserSearch) {
+      console.log("HIIIII");
+      document.getElementById("srchState").value = lastUserSearch.state;
+      document.getElementById("srchCity").value = lastUserSearch.city;
+      document.getElementById("srchProd").value = lastUserSearch.product;
+      document.getElementById("srchFrmDt").value = lastUserSearch.fromDate;
+      document.getElementById("srchToDt").value = lastUserSearch.toDate;
+    }
   } else if (event.target.innerHTML === "Recalling Firm") {
     varModal = "recalling_firm";
     getChart(varModal);
