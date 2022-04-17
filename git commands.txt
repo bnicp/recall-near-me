@@ -1,1 +1,6 @@
 git reset --hard main
+
+
+
+git pull origin main  --- will update your branch with current main -- do this and check conflicts before adding / committing new branch updates
+
