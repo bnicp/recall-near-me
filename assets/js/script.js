@@ -15,7 +15,7 @@ var lastUserSearch = {
 
 function init() {
   getMap();
-  getChart('recalling_firm');
+  getChart("recalling_firm");
 }
 
 function getMap() {
@@ -45,8 +45,8 @@ function getMap() {
         },
         //defaultSeries_shape_padding: 0.02,
         series: [{ color: "#009688", points: getRandomPoints() }],
-         /* Map annotation is added here and <p> describing map details is taken out from index.html*/
-         annotations: [
+        /* Map annotation is added here and <p> describing map details is taken out from index.html*/
+        annotations: [
           {
             id: "annt",
             label: {
@@ -58,7 +58,7 @@ function getMap() {
         ],
       };
 
-      var chart = JSC.chart("chartDiv", chartConfig);
+      JSC.chart("chartDiv", chartConfig);
       var xNew = "";
       var yNew = "";
       function getRandomPoints() {
@@ -85,79 +85,30 @@ function getMap() {
     });
 }
 
-document.addEventListener("click", function (event) {
-  if (event.target.id === "searchModalBtn") {
-    lastUserSearch.state = document.getElementById("srchState").value.trim();
-    lastUserSearch.city = document.getElementById("srchCity").value.trim();
-    lastUserSearch.product = document.getElementById("srchProd").value.trim();
-    lastUserSearch.fromDate = document.getElementById("srchFrmDt").value.trim();
-    lastUserSearch.toDate = document.getElementById("srchToDt").value.trim();
-    localStorage.setItem("lastUserSearch", JSON.stringify(lastUserSearch));
-    window.location.replace("search.html");
-  }
-
-  if (event.target.id === "contactBtn") {
-    // document.getElementById("contactModal").classList.remove("hide");
-  }
-
-  // if (event.target.id !== "contactModal") {
-  //   document.getElementById("contactModal").classList.add("hide");
-  // }
-});
-
-window.onclick = function (event) {
-  if (
-    event.target == contactModal ||
-    event.target == searchModal ||
-    event.target === supportModal
-  ) {
-    contactModal.style.display = "none";
-    searchModal.style.display = "none";
-    supportModal.style.display = "none";
-  }
-};
-
 /* This section is for the bar chart data values*/
 /* event listeners are added for button click event, if  happens, inner html of the element is checked to pick up right request for fetching data */
 
 var varModal = "";
 
-document.addEventListener("click", function (e) {
-  e.stopPropagation();
-  if (e.target.innerHTML === "Recalling Firm") {
-    varModal = "recalling_firm";
-    // alert(varModal);
-    getChart(varModal);
-  } else if (e.target.innerHTML === "Brand Name") {
-    varModal = "name_brand";
-    getChart(varModal);
-  } else if (e.target.innerHTML === "Reactions") {
-    varModal = "reactions";
-    getChart(varModal);
-  }  else {
-  }
-});
-
 function getChart(varModal) {
   var requestUrl1 =
-  "https://api.fda.gov/food/enforcement.json?count=" +
-  varModal +
-  ".exact&sort=report_date:desc&limit=6";
-//alert(requestUrl1);
-if (varModal === "name_brand") {
-  requestUrl1 =
-    "https://api.fda.gov/food/event.json?count=products." +
+    "https://api.fda.gov/food/enforcement.json?count=" +
     varModal +
-    ".exact&limit=5";
-}
+    ".exact&sort=report_date:desc&limit=6";
 
-if (varModal === "reactions") {
-  requestUrl1 =
-    "https://api.fda.gov/food/event.json?count=" +
-    varModal +
-    ".exact&limit=5";
-}
+  if (varModal === "name_brand") {
+    requestUrl1 =
+      "https://api.fda.gov/food/event.json?count=products." +
+      varModal +
+      ".exact&limit=5";
+  }
 
+  if (varModal === "reactions") {
+    requestUrl1 =
+      "https://api.fda.gov/food/event.json?count=" +
+      varModal +
+      ".exact&limit=5";
+  }
 
   var xValues = [];
   var yValues = [];
@@ -179,7 +130,7 @@ if (varModal === "reactions") {
           labels: xValues,
           datasets: [
             {
-              backgroundColor:   [
+              backgroundColor: [
                 "rgba(0,128,128, 0.5)",
                 "rgba(0,128,128, 0.5)",
                 "rgba(0,128,128, 0.5)",
@@ -192,65 +143,98 @@ if (varModal === "reactions") {
           ],
         },
 
-       /* chart configurations are defined to reflect wrapped labels, matching palette color, removing gridlines, and making the bar chart responsive*/
-       options: {
-        legend: { display: false },
-        title: {
-          display: true,
-          text: 'Click above buttons to view top 4 recalls for selected category',
-          responsive: true,
-        },
-        scales: {
-          xAxes: [
-            {
-              gridLines: {
-                color: "rgba(0, 0, 0, 0)",
-              },
-            },
-          ],
-          yAxes: [
-            {
-              gridLines: {
-                color: "rgba(0, 0, 0, 0)",
-              },
-            },
-          ],
-          yAxes: [
-            {
-              display: false,
-            },
-          ],
-
-          xAxes: [
-            {
-              ticks: {
-                maxRotation: 90,
-                minRotation: 0,
-                callback: function (label, index, labels) {
-                  if (/\s/.test(label)) {
-                    return label.split(" ");
-                  } else {
-                    return label;
-                  }
-                },
-              },
-            },
-          ],
+        /* chart configurations are defined to reflect wrapped labels, matching palette color, removing gridlines, and making the bar chart responsive*/
+        options: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: "Click above buttons to view top 4 recalls for selected category",
+            responsive: true,
+          },
           scales: {
-            yAxes: [
+            xAxes: [
               {
-                ticks: {
-                  beginAtZero: true,
+                gridLines: {
+                  color: "rgba(0, 0, 0, 0)",
                 },
               },
             ],
-          },
-       
-        },
-      },
-    });
-  });
-}
-/* This function is called on page load*/
+            yAxes: [
+              {
+                gridLines: {
+                  color: "rgba(0, 0, 0, 0)",
+                },
+              },
+            ],
+            yAxes: [
+              {
+                display: false,
+              },
+            ],
 
+            xAxes: [
+              {
+                ticks: {
+                  maxRotation: 90,
+                  minRotation: 0,
+                  callback: function (label, index, labels) {
+                    if (/\s/.test(label)) {
+                      return label.split(" ");
+                    } else {
+                      return label;
+                    }
+                  },
+                },
+              },
+            ],
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                  },
+                },
+              ],
+            },
+          },
+        },
+      });
+    });
+}
+
+document.addEventListener("click", function (event) {
+  event.stopPropagation();
+  if (event.target.id === "searchModalBtn") {
+    lastUserSearch.state = document.getElementById("srchState").value.trim();
+    lastUserSearch.city = document.getElementById("srchCity").value.trim();
+    lastUserSearch.product = document.getElementById("srchProd").value.trim();
+    lastUserSearch.fromDate = document.getElementById("srchFrmDt").value.trim();
+    lastUserSearch.toDate = document.getElementById("srchToDt").value.trim();
+    localStorage.setItem("lastUserSearch", JSON.stringify(lastUserSearch));
+    window.location.replace("search.html");
+  } else if (event.target.innerHTML === "Recalling Firm") {
+    varModal = "recalling_firm";
+    getChart(varModal);
+  } else if (event.target.innerHTML === "Brand Name") {
+    varModal = "name_brand";
+    getChart(varModal);
+  } else if (event.target.innerHTML === "Reactions") {
+    varModal = "reactions";
+    getChart(varModal);
+  }
+});
+
+window.onclick = function (event) {
+  if (
+    event.target === contactModal ||
+    event.target === searchModal ||
+    event.target === supportModal
+  ) {
+    contactModal.style.display = "none";
+    searchModal.style.display = "none";
+    supportModal.style.display = "none";
+  }
+};
+
+/* This function is called on page load*/
 init();

@@ -107,7 +107,19 @@ function getApi() {
 
 function getNYTArticles(event) {
   topicChoice.innerHTML = "";
-  topicChoice.innerHTML = `<h3>New York Times Relevant Articles for: <br> "${event.target.textContent}"</h3>`;
+
+  var splitSearchCriteria = event.target.textContent.split(" ");
+  var nytSearchCriteriaHeader = "";
+
+  splitSearchCriteria.forEach(function (criteria, i) {
+    if (i === splitSearchCriteria.length - 1) {
+      nytSearchCriteriaHeader += '"' + criteria + '"';
+    } else {
+      nytSearchCriteriaHeader += '"' + criteria + '", ';
+    }
+  });
+
+  topicChoice.innerHTML = `<h3>New York Times Relevant Articles for: <br>${nytSearchCriteriaHeader}</h3>`;
   var queryParam = event.target.textContent;
   queryParam = queryParam.replace(/\s/g, "%20");
   var nytAPIKey = "IpBihDlOE1r2nQVdTm0GsZyMB2Ba0BGQ";
@@ -143,19 +155,9 @@ function getNYTArticles(event) {
           topicChoice.innerHTML += nytArticle;
         }
       } else {
-        topicChoice.innerHTML = "No Results Found";
+        topicChoice.innerHTML += "<p>No Results Found</p>";
       }
     });
-}
-
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
-
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
 }
 
 // Event listener for whole page
@@ -171,6 +173,7 @@ document.addEventListener("click", function (event) {
     localStorage.setItem("lastUserSearch", JSON.stringify(lastUserSearch));
     nytContainer.classList.add("hide");
     fdaContainer.classList.remove("w3-half");
+    searchModal.style.display = "none";
     getApi();
   }
 
@@ -183,7 +186,6 @@ document.addEventListener("click", function (event) {
   // When the recalling firm is clicked on then the NYT API is called
   if (event.target.classList.contains("recallFirm")) {
     topicChoice.classList.remove("hide");
-    // fdaContainer.classList.remove("w3-twothird");
     fdaContainer.classList.add("w3-half");
     nytContainer.classList.remove("hide");
     getNYTArticles(event);
@@ -192,8 +194,8 @@ document.addEventListener("click", function (event) {
 
 window.onclick = function (event) {
   if (
-    event.target == contactModal ||
-    event.target == searchModal ||
+    event.target === contactModal ||
+    event.target === searchModal ||
     event.target === supportModal
   ) {
     contactModal.style.display = "none";
@@ -202,4 +204,5 @@ window.onclick = function (event) {
   }
 };
 
+/* This function is called on page load*/
 init();
