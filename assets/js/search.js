@@ -107,7 +107,19 @@ function getApi() {
 
 function getNYTArticles(event) {
   topicChoice.innerHTML = "";
-  topicChoice.innerHTML = `<h3>New York Times Relevant Articles for: <br> "${event.target.textContent}"</h3>`;
+
+  var splitSearchCriteria = event.target.textContent.split(" ");
+  var nytSearchCriteriaHeader = "";
+
+  splitSearchCriteria.forEach(function (criteria, i) {
+    if (i === splitSearchCriteria.length - 1) {
+      nytSearchCriteriaHeader += '"' + criteria + '"';
+    } else {
+      nytSearchCriteriaHeader += '"' + criteria + '", ';
+    }
+  });
+
+  topicChoice.innerHTML = `<h3>New York Times Relevant Articles for: <br>${nytSearchCriteriaHeader}</h3>`;
   var queryParam = event.target.textContent;
   queryParam = queryParam.replace(/\s/g, "%20");
   var nytAPIKey = "IpBihDlOE1r2nQVdTm0GsZyMB2Ba0BGQ";
@@ -143,7 +155,7 @@ function getNYTArticles(event) {
           topicChoice.innerHTML += nytArticle;
         }
       } else {
-        topicChoice.innerHTML = "No Results Found";
+        topicChoice.innerHTML += "<p>No Results Found</p>";
       }
     });
 }
@@ -171,6 +183,7 @@ document.addEventListener("click", function (event) {
     localStorage.setItem("lastUserSearch", JSON.stringify(lastUserSearch));
     nytContainer.classList.add("hide");
     fdaContainer.classList.remove("w3-half");
+    searchModal.style.display = "none";
     getApi();
   }
 
