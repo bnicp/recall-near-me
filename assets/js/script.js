@@ -11,8 +11,11 @@ var lastUserSearch = {
   toDate: "",
 };
 
+/*Vizs - map and bar chart are loaded on window load */
+
 function init() {
   getMap();
+  getChart('recalling_firm');
 }
 
 function getMap() {
@@ -33,14 +36,26 @@ function getMap() {
       }
 
       var chartConfig = {
-        debug: true,
+        debug: false,
         type: "map",
         defaultPoint: {
           label_text: "%stateCode",
-          tooltip: "<br/>Total Recalls: {%zValue}",
+          tooltip:
+            '<span style="color:#000937;font-weight:bolder;height:50%;font-size:1rem">{%name}:  {%zValue}</span>',
         },
         //defaultSeries_shape_padding: 0.02,
         series: [{ color: "#009688", points: getRandomPoints() }],
+         /* Map annotation is added here and <p> describing map details is taken out from index.html*/
+         annotations: [
+          {
+            id: "annt",
+            label: {
+              text: "Above map displays top 25 states by total recalls. Hover over map to get info on total recalls till date",
+              style_fontSize: 14,
+            },
+            position: "bottom left",
+          },
+        ],
       };
 
       var chart = JSC.chart("chartDiv", chartConfig);
@@ -54,6 +69,8 @@ function getMap() {
 
         xNew = xNew.split(",");
         yNew = yNew.split(",");
+
+        /*Below  condition checks help to avoid undefined as a state value passed to the map */
 
         return xNew.map(function (arrItem, index) {
           if (arrItem === "undefined") {
@@ -100,36 +117,47 @@ window.onclick = function (event) {
   }
 };
 
+/* This section is for the bar chart data values*/
+/* event listeners are added for button click event, if  happens, inner html of the element is checked to pick up right request for fetching data */
+
 var varModal = "";
 
-document.addEventListener("mouseover", function (e) {
+document.addEventListener("click", function (e) {
   e.stopPropagation();
-  if (e.target.innerHTML === "defective") {
-    varModal = "defective";
+  if (e.target.innerHTML === "Recalling Firm") {
+    varModal = "recalling_firm";
     // alert(varModal);
     getChart(varModal);
-  } else if (e.target.innerHTML === "adulterated") {
-    varModal = "adulterated";
+  } else if (e.target.innerHTML === "Brand Name") {
+    varModal = "name_brand";
     getChart(varModal);
-  } else if (e.target.innerHTML === "contaminated") {
-    varModal = "contaminated";
+  } else if (e.target.innerHTML === "Reactions") {
+    varModal = "reactions";
     getChart(varModal);
-  } else if (e.target.innerHTML === "misbranded") {
-    varModal = "misbranded";
-    getChart(varModal);
-  } else if (e.target.innerHTML === "mislabeled") {
-    varModal = "mislabeled";
-    getChart(varModal);
-  } else {
+  }  else {
   }
 });
 
 function getChart(varModal) {
   var requestUrl1 =
-    //"https://api.fda.gov/food/enforcement.json?search=reason_for_recall:milk&count=report_date&sort=report_date:desc&limit=10";
-    "https://api.fda.gov/food/enforcement.json?search=reason_for_recall:" +
+  "https://api.fda.gov/food/enforcement.json?count=" +
+  varModal +
+  ".exact&sort=report_date:desc&limit=6";
+//alert(requestUrl1);
+if (varModal === "name_brand") {
+  requestUrl1 =
+    "https://api.fda.gov/food/event.json?count=products." +
     varModal +
-    "&count=city.exact&sort=report_date:desc&limit=5";
+    ".exact&limit=5";
+}
+
+if (varModal === "reactions") {
+  requestUrl1 =
+    "https://api.fda.gov/food/event.json?count=" +
+    varModal +
+    ".exact&limit=5";
+}
+
 
   var xValues = [];
   var yValues = [];
@@ -139,7 +167,7 @@ function getChart(varModal) {
     })
     .then(function (data) {
       var results = data.results;
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i <= 3; i++) {
         xValues.push(results[i].term);
         //alert(xValues);
         yValues.push(results[i].count);
@@ -151,57 +179,78 @@ function getChart(varModal) {
           labels: xValues,
           datasets: [
             {
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.3)",
-                "rgba(54, 162, 235, 0.3)",
-                "rgba(255, 206, 86, 0.3)",
-                "rgba(75, 192, 192, 0.3)",
-                "rgba(153, 102, 255, 0.3)",
-                "rgba(255, 159, 64, 0.3)",
+              backgroundColor:   [
+                "rgba(0,128,128, 0.5)",
+                "rgba(0,128,128, 0.5)",
+                "rgba(0,128,128, 0.5)",
+                "rgba(0,128,128, 0.5)",
+                "rgba(0,128,128, 0.5)",
+                "rgba(0,128,128, 0.5)",
               ],
               data: yValues,
             },
           ],
         },
 
-        options: {
-          legend: { display: false },
-          title: {
-            display: true,
-            text: varModal,
-            responsive: true,
-          },
-          scales: {
-            xAxes: [
-              {
-                gridLines: {
-                  color: "rgba(0, 0, 0, 0)",
-                },
-              },
-            ],
-            yAxes: [
-              {
-                gridLines: {
-                  color: "rgba(0, 0, 0, 0)",
-                },
-              },
-            ],
-            yAxes: [
-              {
-                display: false,
-              },
-            ],
-          },
-          plugins: {
-            datalabels: {
-              display: true,
-              align: "center",
-              anchor: "center",
-            },
-          },
+       /* chart configurations are defined to reflect wrapped labels, matching palette color, removing gridlines, and making the bar chart responsive*/
+       options: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Click above buttons to view top 4 recalls for selected category',
+          responsive: true,
         },
-      });
+        scales: {
+          xAxes: [
+            {
+              gridLines: {
+                color: "rgba(0, 0, 0, 0)",
+              },
+            },
+          ],
+          yAxes: [
+            {
+              gridLines: {
+                color: "rgba(0, 0, 0, 0)",
+              },
+            },
+          ],
+          yAxes: [
+            {
+              display: false,
+            },
+          ],
+
+          xAxes: [
+            {
+              ticks: {
+                maxRotation: 90,
+                minRotation: 0,
+                callback: function (label, index, labels) {
+                  if (/\s/.test(label)) {
+                    return label.split(" ");
+                  } else {
+                    return label;
+                  }
+                },
+              },
+            },
+          ],
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: true,
+                },
+              },
+            ],
+          },
+       
+        },
+      },
     });
+  });
 }
+/* This function is called on page load*/
 
 init();
