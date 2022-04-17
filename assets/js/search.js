@@ -160,16 +160,6 @@ function getNYTArticles(event) {
     });
 }
 
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
-
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-
 // Event listener for whole page
 document.addEventListener("click", function (event) {
   // When the search button is clicked from the home page the index.html
@@ -196,7 +186,6 @@ document.addEventListener("click", function (event) {
   // When the recalling firm is clicked on then the NYT API is called
   if (event.target.classList.contains("recallFirm")) {
     topicChoice.classList.remove("hide");
-    // fdaContainer.classList.remove("w3-twothird");
     fdaContainer.classList.add("w3-half");
     nytContainer.classList.remove("hide");
     getNYTArticles(event);
@@ -205,8 +194,8 @@ document.addEventListener("click", function (event) {
 
 window.onclick = function (event) {
   if (
-    event.target == contactModal ||
-    event.target == searchModal ||
+    event.target === contactModal ||
+    event.target === searchModal ||
     event.target === supportModal
   ) {
     contactModal.style.display = "none";
@@ -215,4 +204,5 @@ window.onclick = function (event) {
   }
 };
 
+/* This function is called on page load*/
 init();

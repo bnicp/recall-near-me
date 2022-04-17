@@ -58,7 +58,7 @@ function getMap() {
         ],
       };
 
-      var chart = JSC.chart("chartDiv", chartConfig);
+      JSC.chart("chartDiv", chartConfig);
       var xNew = "";
       var yNew = "";
       function getRandomPoints() {
@@ -90,28 +90,12 @@ function getMap() {
 
 var varModal = "";
 
-document.addEventListener("click", function (e) {
-  e.stopPropagation();
-  if (e.target.innerHTML === "Recalling Firm") {
-    varModal = "recalling_firm";
-    // alert(varModal);
-    getChart(varModal);
-  } else if (e.target.innerHTML === "Brand Name") {
-    varModal = "name_brand";
-    getChart(varModal);
-  } else if (e.target.innerHTML === "Reactions") {
-    varModal = "reactions";
-    getChart(varModal);
-  } else {
-  }
-});
-
 function getChart(varModal) {
   var requestUrl1 =
     "https://api.fda.gov/food/enforcement.json?count=" +
     varModal +
     ".exact&sort=report_date:desc&limit=6";
-  //alert(requestUrl1);
+
   if (varModal === "name_brand") {
     requestUrl1 =
       "https://api.fda.gov/food/event.json?count=products." +
@@ -219,6 +203,7 @@ function getChart(varModal) {
 }
 
 document.addEventListener("click", function (event) {
+  event.stopPropagation();
   if (event.target.id === "searchModalBtn") {
     lastUserSearch.state = document.getElementById("srchState").value.trim();
     lastUserSearch.city = document.getElementById("srchCity").value.trim();
@@ -227,13 +212,22 @@ document.addEventListener("click", function (event) {
     lastUserSearch.toDate = document.getElementById("srchToDt").value.trim();
     localStorage.setItem("lastUserSearch", JSON.stringify(lastUserSearch));
     window.location.replace("search.html");
+  } else if (event.target.innerHTML === "Recalling Firm") {
+    varModal = "recalling_firm";
+    getChart(varModal);
+  } else if (event.target.innerHTML === "Brand Name") {
+    varModal = "name_brand";
+    getChart(varModal);
+  } else if (event.target.innerHTML === "Reactions") {
+    varModal = "reactions";
+    getChart(varModal);
   }
 });
 
 window.onclick = function (event) {
   if (
-    event.target == contactModal ||
-    event.target == searchModal ||
+    event.target === contactModal ||
+    event.target === searchModal ||
     event.target === supportModal
   ) {
     contactModal.style.display = "none";
