@@ -1,19 +1,7 @@
-/* :root {
-  --white: white;
-  --black: black;
-  --light-blue: rgb(97, 135, 188);
-  --green-blue: rgb(81, 142, 139);
-  --light-background: rgb(219, 219, 219);
-  --dark: #000000;
-  --light: #eb764f;
-  --background: #d9dcd6;
-} */
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
- /*font-size: large;*/ /* commented this as map annotation font-size was getting over written. Map annotation font-size is set in the script.js*/
   font-family: "Inconsolata", sans-serif;
 }
 
