@@ -111,74 +111,49 @@
     <div class="w3-half w3-padding-large w3-hide-small">
       <span class="w3-tag w3-theme-lime w3-round-large w3-padding" style="background-color: #2E5987">
         <h3>Educate Yourself</h3>
-        <p class="w3-left-align w3-padding-16">
-          This site has been provided as an easy way for you, the consumer, to gather information about relevant U.S. Food and Drug Administration (FDA) recalls.</p>
-          <p class="w3-left-align w3-padding-16">
-          Food recalls can be extremely serious events and should be treated with caution when it comes to the products you purchase or may already have in your home.
-          </p>
-<h3>What is a food recall?</h3>
-<p class="w3-left-align w3-padding-16">
-          Food may be pulled from the marketplace because the FDA deems it to be defective, adulterated, contaminated, misbranded, or mislabeled.
-          </p>
-<h3>The most common reasons foods are recalled:</h3>
-<p class="w3-left-align w3-padding-16">
-  *contamination from E. coli, Salmonella, or other pathogens<br>
-  *undeclared ingredients that may cause food allergens<br>
-  *plastic, glass, metal, or other foreign objects
-</p>
-<h3>Let us help with this simple tool!</h3>
-        <p class="w3-left-align w3-padding-16">
-          Click the Search button in the top right of this page to put in your specifed criteria and see recalls by State, City, Product Description, and/or Date Recalled. Once the results populate, you will also be able to see any New York Times coverage on these events.
-
-        <!-- Added this section as an annotation under maps in scripts.js-->
-       <!-- <br>
-        <p class="w3-right-align" id="mapHoverInfo">
-          <i class="fa fa-map w3-hover-opacity"></i>
-          Hover over map to get info on total recalls till date
-        </p>-->
+        <p class="w3-left-align w3-padding-16">This site has been provided as an easy way for you, the consumer, to gather information about relevant U.S. Food and Drug Administration (FDA) recalls.</p>
+        <p class="w3-left-align w3-padding-16">Food recalls can be extremely serious events and should be treated with caution when it comes to the products you purchase or may already have in your home.</p>
+        <h3>What is a food recall?</h3>
+        <p class="w3-left-align w3-padding-16">Food may be pulled from the marketplace because the FDA deems it to be defective, adulterated, contaminated, misbranded, or mislabeled.</p>
+        <h3>The most common reasons foods are recalled:</h3>
+        <ul class="w3-left-align w3-padding">
+          <li>contamination from E. coli, Salmonella, or other pathogens</li>
+          <li>undeclared ingredients that may cause food allergens</li>
+          <li>plastic, glass, metal, or other foreign objects</li>
+        </ul>
+        <h3>Let us help with this simple tool!</h3>
+        <p class="w3-left-align w3-padding-16">Click the Search button in the top right of this page to put in your specifed criteria and see recalls by State, City, Product Description, and/or Date Recalled. Once the results populate, you will also be able to click the recalling firm to see any New York Times coverage on similar terms.</p>
       </span>
     </div>
 
-      <div class="w3-half w3-display-container w3-hide-small" style="height: 600px"  id="chartDiv"></div>
+    <div class="w3-half w3-display-container w3-hide-small" style="height: 600px"  id="chartDiv"></div>
 
-<!--  commented div container created by Brandi-->
-
-  <!--  <div class="w3-display-container w3-hide-small" style="height: 600px"  ></div>-->
-   <!--<div class="w3-display-container">hello</div>-->
-
-   <!--button click events - bar chart interaction-->
-
-   <div class="w3-half w3-bottomleft w3-hide-small "  style="color:white">
-   <div class="w3-display-container ">
-    <button class="w3-button w3-medium" style="background-color: #2E5987">Recalling Firm</button>
-    <button class="w3-button w3-medium" style="background-color: #2E5987">Brand Name</button>
-    <button  class="w3-button w3-medium" style="background-color: #2E5987">Reactions</button>
-</div>
-<div class="w3-card-2 w3-center w3-padding w3-margin-right w3-hide-small "  style="color:white">
-  <div class="w3-display-container w3-center w3-padding  w3-large w3-hide-small"  style="color:white;">
-
-    
-    <canvas id="chartModal" style="height: 100%"></canvas> 
-
-  
+    <div class="w3-half w3-bottomleft w3-hide-small"  style="color:white">
+      <div class="w3-display-container">
+        <button class="w3-button w3-medium" style="background-color: #2E5987">Recalling Firm</button>
+        <button class="w3-button w3-medium" style="background-color: #2E5987">Brand Name</button>
+        <button  class="w3-button w3-medium" style="background-color: #2E5987">Reactions</button>
+      </div>
+      <div class="w3-card-2 w3-center w3-padding w3-margin-right w3-hide-small"  style="color:white">
+        <div class="w3-display-container w3-center w3-padding w3-large w3-hide-small"  style="color:white;">
+          <canvas id="chartModal" style="height: 100%"></canvas> 
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-    </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="w3-center w3-dark-grey w3-padding-32">
-      <p class="w3-medium">
-        Powered by Team13
-      </p>
-    </footer>
+  <!-- Footer -->
+  <footer class="w3-center w3-dark-grey w3-padding-32">
+    <p class="w3-medium">
+      Powered by Team13
+    </p>
+  </footer>
 
 
-    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script type="text/javascript" src="https://code.jscharting.com/latest/modules/maps.js"></script> 
-    <script src="./assets/js/script.js"></script>
+  <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script type="text/javascript" src="https://code.jscharting.com/latest/modules/maps.js"></script> 
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
