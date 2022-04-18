@@ -13,45 +13,65 @@
 
 <body>
   <!-- nav bar at top -->
-  <header class="w3-container w3-teal w3-padding-32 w3-left-align">
+  <header class="w3-container w3-teal w3-padding-32 w3-left-align w3-hide-small">
     <a href="#home" class="w3-bar-item w3-button" id="websiteTitle">FDA Food Recalls</a>
     <div class="w3-right">
       <button onclick="document.getElementById('searchModal').style.display='block'" class="w3-button"
         id="searchModalOpenBtn">
         Search
       </button>
-      <button onclick="document.getElementById('contactModal').style.display='block'" class="w3-button" id="contactOpenBtn"> <!--id added to  add disable functionality on disclaimer pop up-->
+      <button onclick="document.getElementById('contactModal').style.display='block'" class="w3-button"
+        id="contactOpenBtn">
+        <!--id added to  add disable functionality on disclaimer pop up-->
         Contact Us
       </button>
-      <button onclick="document.getElementById('supportModal').style.display='block'" class="w3-button" id="supportOpenBtn"> <!--id added to  add disable functionality on disclaimer pop up-->
+      <button onclick="document.getElementById('supportModal').style.display='block'" class="w3-button"
+        id="supportOpenBtn">
+        <!--id added to  add disable functionality on disclaimer pop up-->
         Support Us
       </button>
     </div>
   </header>
 
+  <!-- Small screen nav -->
+  <div class="topnav w3-hide-medium w3-hide-large w3-teal">
+    <a href="#home" class="active">FDA Food Recalls</a>
+    <div id="myLinks">
+      <button onclick="document.getElementById('searchModal').style.display='block'" class="w3-button"
+        id="searchModalOpenBtn">
+        Search
+      </button>
+      <button onclick="document.getElementById('contactModal').style.display='block'" class="w3-button">
+        Contact Us
+      </button>
+      <button onclick="document.getElementById('supportModal').style.display='block'" class="w3-button">
+        Support Us
+      </button>
+    </div>
+  </div>
+
+  <!-- Disclaimer Section-->
+  <div class="modal-content  w3-animate-top w3-round-large " style="background-color:rgba(46,89,135,0.3)"
+    id="modalDisclaimer">
+    <!--id added to  add visibility hidden functionality on disclaimer pop up-->
+
+    <div class="modal-header">
+      <!--<span class="close">&times;</span>-->
+      <h3>Disclaimer</h3>
+    </div>
+    <div class="modal-body">
+      <p>All content available through this web site is for general information purposes only</p>
+      <p>You are encouraged to confirm any information obtained from or through this web site with other sources.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="w3-button w3-hover-dark-grey w3-text-white w3-round-large" style="background-color: #2E5987"
+        id="disclaimerButton">Agree</button>
+    </div>
+
+  </div>
+  <!-- disclaimer section ends here-->
+
   <!-- modals -->
-
-<!-- Disclaimer Section-->
-<div class="modal-content  w3-animate-top w3-round-large " style ="background-color:rgba(46,89,135,0.3)" id="modalDisclaimer"> <!--id added to  add visibility hidden functionality on disclaimer pop up-->
-
-  <div class="modal-header">
-    <!--<span class="close">&times;</span>-->
-    <h3>Disclaimer</h3>
-  </div>
-  <div class="modal-body">
-    <p>All content available through this web site is for general information purposes only</p>
-    <p>You are encouraged to confirm any information obtained from or through this web site with other sources.</p>
-  </div>
-  <div class="modal-footer">
-    <button class="w3-button w3-hover-dark-grey w3-text-white w3-round-large" style="background-color: #2E5987" id="disclaimerButton">Agree</button>
-  </div>
-
-</div>
-
-
-<!-- disclaimer section ends here-->
-
-
   <div id="searchModal" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding">
       <header class="w3-container w3-theme-l1">
@@ -97,7 +117,7 @@
         <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large "></i>Team13</p>
         <p><i class="fa fa-home fa-fw w3-margin-right w3-large"></i>Atlanta, GA</p>
         <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large"></i><a
-            href="mailto:bnp415@gmail.com">bnp415@gmail.coml</a>
+            href="mailto:bnp415@gmail.com">bnp415@gmail.com</a>
           <footer class="w3-container w3-theme-l1">
             <p>We'd love to hear from you!</p>
           </footer>
@@ -126,7 +146,6 @@
   </div>
 
   <!-- Page content -->
-
   <div class="w3-content" style="max-width:2000px" id="aboutModal">
     <!-- About Section -->
     <div class="w3-row w3-margin" id="about">
@@ -153,17 +172,20 @@
             Recalled. Once the results populate, you will also be able to click the recalling firm to see any New York
             Times coverage on similar terms.</p>
         </span>
-        <img src="./assets/images/silverware-1667988_640.png" class="w3-padding-64 w3-hide-small w3-hide-medium"
-          style="height: 600px; opacity:80%; color:#2E5987">
+        <img src="./assets/images/vegetables-155616_640.png" class="w3-padding-64 w3-hide-small w3-hide-medium"
+          style="height: 300px; opacity:80%; color:#2E5987">
       </div>
 
-
+      <!-- Map -->
       <div class="w3-col m6 s12 w3-display-container w3-margin-bottom-64" style="height: 600px" id="chartDiv"></div>
 
+      <!-- top recalls chart-->
       <div class="w3-col m6 s12 w3-display-container w3-padding-32" id="chartContainer" style="color:white">
       </div>
       <div class="w3-col m6 s12 w3-padding-32 w3-right" style="color:white">
         <div class="w3-display-container">
+          <p style="color:black; font-size:14px">Click the buttons below to view top 4 recalls for selected category.
+          </p>
           <button class="w3-button w3-medium w3-round-large w3-margin-top" style="background-color: #2E5987"
             id="catFirm">Recalling
             Firm</button>
@@ -176,6 +198,7 @@
       </div>
     </div>
   </div>
+
   <!-- Footer -->
   <footer class="w3-container w3-center w3-dark-grey w3-padding-32">
     <p class="w3-medium">
