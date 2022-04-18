@@ -1,145 +1,256 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>FDA FOOD RECALLS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/images/silverware-1667988_640.png"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <title>FDA FOOD RECALLS</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="./assets/css/style.css"/>
-</head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
-<body>
-  <!-- nav bar at top -->
-  <header class="w3-container w3-teal w3-padding-32 w3-left-align">
-    <a href="#home" class="w3-bar-item w3-button" id="websiteTitle">FDA Food Recalls</a>
-    <div class="w3-right">
-      <button onclick="document.getElementById('searchModal').style.display='block'" class="w3-button" id="searchModalOpenBtn">
-        Search
-      </button>
-      <button onclick="document.getElementById('contactModal').style.display='block'" class="w3-button">
-        Contact Us
-      </button>
-      <button onclick="document.getElementById('supportModal').style.display='block'" class="w3-button">
-        Support Us
-      </button>
-    </div>
-  </header>
+  <body>
+    <!-- Larger Screen Headers -->
+    <header
+      class="w3-container w3-teal w3-padding-32 w3-left-align w3-hide-small"
+    >
+      <a href="#home" class="w3-bar-item w3-button" id="websiteTitle"
+        >FDA Food Recalls</a
+      >
+      <div class="w3-right">
+        <button
+          onclick="document.getElementById('searchModal').style.display='block'"
+          class="w3-button"
+          id="searchModalOpenBtn"
+        >
+          Search
+        </button>
+        <button
+          onclick="document.getElementById('contactModal').style.display='block'"
+          class="w3-button"
+          id="contactOpenBtn"
+        >
+          <!--id added to  add disable functionality on disclaimer pop up-->
+          Contact Us
+        </button>
+        <button
+          onclick="document.getElementById('supportModal').style.display='block'"
+          class="w3-button"
+          id="supportOpenBtn"
+        >
+          <!--id added to  add disable functionality on disclaimer pop up-->
+          Support Us
+        </button>
+      </div>
+    </header>
 
-  <!-- modals -->
-  <div id="searchModal" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding">
-      <header class="w3-container w3-theme-l1">
-        <span onclick="document.getElementById('searchModal').style.display='none'"
-      class="w3-button w3-display-topright w3-text-white w3-round-large w3-margin" style="background-color: #2E5987">&times;</span>
-        <h2>Search By:</h2>
+    <!-- Small Screen Header -->
+    <header class="topnav w3-hide-medium w3-hide-large w3-teal">
+      <a href="#home" class="active">FDA Food Recalls</a>
+      <div id="myLinks">
+        <button
+          onclick="document.getElementById('searchModal').style.display='block'"
+          class="w3-button"
+          id="searchModalOpenBtn"
+        >
+          Search
+        </button>
+        <button
+          onclick="document.getElementById('contactModal').style.display='block'"
+          class="w3-button"
+        >
+          Contact Us
+        </button>
+        <button
+          onclick="document.getElementById('supportModal').style.display='block'"
+          class="w3-button"
+        >
+          Support Us
+        </button>
+      </div>
+    </header>
+
+    <!-- Search Modal Pop Out -->
+    <div id="searchModal" class="w3-modal">
+      <div
+        class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding"
+      >
+        <header class="w3-container w3-theme-l1">
+          <span
+            onclick="document.getElementById('searchModal').style.display='none'"
+            class="w3-button w3-display-topright w3-text-white w3-round-large w3-margin"
+            style="background-color: #2e5987"
+            >&times;</span
+          >
+          <h2>Search By:</h2>
+        </header>
         <div class="w3-section">
-          <input class="w3-input" type="text" id="srchState" maxlength=2 placeholder="Ex: GA"/>
+          <input
+            class="w3-input"
+            type="text"
+            id="srchState"
+            maxlength="2"
+            placeholder="Ex: GA"
+          />
           <label>State</label>
         </div>
         <div class="w3-section">
-          <input class="w3-input" type="text" id="srchCity" placeholder="Ex: Atlanta" />
+          <input
+            class="w3-input"
+            type="text"
+            id="srchCity"
+            placeholder="Ex: Atlanta"
+          />
           <label>City</label>
         </div>
         <div class="w3-section">
-          <input class="w3-input" type="text" id="srchProd" placeholder="Ex: Cheese" />
+          <input
+            class="w3-input"
+            type="text"
+            id="srchProd"
+            placeholder="Ex: Cheese"
+          />
           <label>Product Description</label>
         </div>
         <br />
         <div class="w3-section">
-          <label>From: <input type="date" id="srchFrmDt" name="rclfrom"/></label>
-          <label>To: <input type="date" id="srchToDt" name="rclto"/></label>
+          <label
+            >From: <input type="date" id="srchFrmDt" name="rclfrom"
+          /></label>
+          <label>To: <input type="date" id="srchToDt" name="rclto" /></label>
           <p>Date Reported</p>
         </div>
         <br />
         <div class="w3-section">
-          <button type="submit" class="w3-button w3-hover-dark-grey w3-text-white w3-round-large" style="background-color: #2E5987" id="searchModalBtn">
+          <button
+            type="submit"
+            class="w3-button w3-hover-dark-grey w3-text-white w3-round-large"
+            style="background-color: #2e5987"
+            id="searchModalBtn"
+          >
             Submit
           </button>
         </div>
+      </div>
     </div>
-  </div>
 
-  <div id="contactModal" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding">
-      <header class="w3-container w3-theme-l1">
-        <span onclick="document.getElementById('contactModal').style.display='none'"
-      class="w3-button w3-display-topright w3-text-white w3-round-large w3-margin" style="background-color: #2E5987">&times;</span>
-        <h3>Contact Info</h3>
-        <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large "></i>Team13</p>
-        <p><i class="fa fa-home fa-fw w3-margin-right w3-large"></i>Atlanta, GA</p>
-        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large"></i><a href="mailto:bnp415@gmail.com">bnp415@gmail.com</a>
+    <!-- Contact Modal Pop Out -->
+    <div id="contactModal" class="w3-modal">
+      <div
+        class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding"
+      >
+        <header class="w3-container w3-theme-l1">
+          <span
+            onclick="document.getElementById('contactModal').style.display='none'"
+            class="w3-button w3-display-topright w3-text-white w3-round-large w3-margin"
+            style="background-color: #2e5987"
+            >&times;</span
+          >
+          <h3>Contact Info</h3>
+        </header>
+        <p>
+          <i class="fa fa-briefcase fa-fw w3-margin-right w3-large"></i>Team13
+        </p>
+        <p>
+          <i class="fa fa-home fa-fw w3-margin-right w3-large"></i>Atlanta, GA
+        </p>
+        <p>
+          <i class="fa fa-envelope fa-fw w3-margin-right w3-large"></i
+          ><a href="mailto:bnp415@gmail.com">bnp415@gmail.com</a>
+        </p>
         <footer class="w3-container w3-theme-l1">
           <p>We'd love to hear from you!</p>
         </footer>
-    </div>
-  </div>
-
-  <div id="supportModal" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding">
-      <header class="w3-container w3-theme-l1">
-        <span onclick="document.getElementById('supportModal').style.display='none'"
-      class="w3-button w3-display-topright w3-text-white w3-round-large w3-margin" style="background-color: #2E5987">&times;</span>
-        <h3>Support Us</h3>
-        <h5>Help by contributing!</h5>
-      </header>
-      <div class="w3-padding w3-left-align">
-        This site was created by:<br>
-        <ul class="w3-padding">
-          <li>Brandi Peters (https://github.com/bnicp)</li>
-          <li>Heather Noyes (https://github.com/heatherknoyes)</li>
-          <li>Rekha Renduchintala (https://github.com/rekhawb)</li>
-          <li>Eberechukwu Ezeobi (https://github.com/ebere-code)</li>
-        </ul>
       </div>
     </div>
-  </div>
 
-  <div id="mdlHover" class="w3-modal">
-    <div class="w3-modal-content w3-animate-opacity" style="height: 200px;
-    width: 300px">
-      <div class="w3-container" >
-        <span onclick="document.getElementById('mdlHover').style.display='none'"
-        class="w3-button w3-display-topleft">&times;</span>
-        <canvas id="chartModal"></canvas>  
-      </div>   
-    </div>
-  </div>
-
-  <!-- page content -->
-  <main>
-    <div class="w3-content w3-padding" style="max-width:2000px">
-      <div class="w3-row-padding w3-center w3-margin-top">
-        <div id="fdaResults">
-          <div class="w3-card w3-container">
-            <div id="displayResults"></div>
-          </div>
-        </div>
-
-        <div id="nytResults" class="w3-half hide">
-          <div class="w3-card w3-container">
-            <div id="displayNYT"></div>
-          </div>
+    <!-- Support Modal Pop Out -->
+    <div id="supportModal" class="w3-modal">
+      <div
+        class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding"
+      >
+        <header class="w3-container w3-theme-l1">
+          <span
+            onclick="document.getElementById('supportModal').style.display='none'"
+            class="w3-button w3-display-topright w3-text-white w3-round-large w3-margin"
+            style="background-color: #2e5987"
+            >&times;</span
+          >
+          <h3>Support Us</h3>
+          <h5>Help by contributing!</h5>
+        </header>
+        <div class="w3-padding w3-left-align">
+          This site was created by:<br />
+          <ul class="w3-padding">
+            <li>Brandi Peters (https://github.com/bnicp)</li>
+            <li>Heather Noyes (https://github.com/heatherknoyes)</li>
+            <li>Rekha Renduchintala (https://github.com/rekhawb)</li>
+            <li>Eberechukwu Ezeobi (https://github.com/ebere-code)</li>
+          </ul>
         </div>
       </div>
     </div>
-  </main>
 
-  <!-- Footer -->
-  <footer class="w3-container w3-center w3-dark-grey w3-padding-32">
-    <p class="w3-medium">
-      Powered by Team13
-    </p>
-  </footer>
+    <div id="mdlHover" class="w3-modal">
+      <div
+        class="w3-modal-content w3-animate-opacity"
+        style="height: 200px; width: 300px"
+      >
+        <div class="w3-container">
+          <span
+            onclick="document.getElementById('mdlHover').style.display='none'"
+            class="w3-button w3-display-topleft"
+            >&times;</span
+          >
+          <canvas id="chartModal"></canvas>
+        </div>
+      </div>
+    </div>
 
-  <script src="https://code.jscharting.com/latest/jscharting.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script type="text/javascript" src="https://code.jscharting.com/latest/modules/maps.js"></script> 
-  <script src="./assets/js/search.js"></script>
-</body>
+    <!-- Main Page Content After Searching -->
+    <main>
+      <div class="w3-content w3-padding" style="max-width: 2000px">
+        <div class="w3-row-padding w3-center w3-margin-top">
+          <div id="fdaResults">
+            <div class="w3-card w3-container">
+              <div id="displayResults"></div>
+            </div>
+          </div>
 
+          <div id="nytResults" class="w3-half hide">
+            <div class="w3-card w3-container">
+              <div id="displayNYT"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-center w3-dark-grey w3-padding-32">
+      <p class="w3-medium">Powered by Team13</p>
+    </footer>
+
+    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://code.jscharting.com/latest/modules/maps.js"
+    ></script>
+    <script src="./assets/js/search.js"></script>
+  </body>
 </html>

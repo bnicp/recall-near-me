@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>FDA FOOD RECALLS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/images/silverware-1667988_640.png"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -17,7 +22,7 @@
   </head>
 
   <body>
-    <!-- nav bar at top -->
+    <!-- Larger Screen Headers -->
     <header
       class="w3-container w3-teal w3-padding-32 w3-left-align w3-hide-small"
     >
@@ -51,8 +56,8 @@
       </div>
     </header>
 
-    <!-- Small screen nav -->
-    <div class="topnav w3-hide-medium w3-hide-large w3-teal">
+    <!-- Small Screen Header -->
+    <header class="topnav w3-hide-medium w3-hide-large w3-teal">
       <a href="#home" class="active">FDA Food Recalls</a>
       <div id="myLinks">
         <button
@@ -75,9 +80,9 @@
           Support Us
         </button>
       </div>
-    </div>
+    </header>
 
-    <!-- Disclaimer Section-->
+    <!-- Disclaimer Modal Pop Out-->
     <div
       class="modal-content w3-animate-top w3-round-large"
       style="background-color: rgba(46, 89, 135, 0.3)"
@@ -108,9 +113,8 @@
         </button>
       </div>
     </div>
-    <!-- disclaimer section ends here-->
 
-    <!-- modals -->
+    <!-- Search Modal Pop Out -->
     <div id="searchModal" class="w3-modal">
       <div
         class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding"
@@ -174,6 +178,7 @@
       </div>
     </div>
 
+    <!-- Contact Modal Pop Out -->
     <div id="contactModal" class="w3-modal">
       <div
         class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding"
@@ -204,6 +209,7 @@
       </div>
     </div>
 
+    <!-- Support Modal Pop Out -->
     <div id="supportModal" class="w3-modal">
       <div
         class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding"
@@ -288,7 +294,7 @@
           id="chartDiv"
         ></div>
 
-        <!-- top recalls chart-->
+        <!-- Top Recalls Chart-->
         <div
           class="w3-col m6 s12 w3-display-container w3-padding-32"
           id="chartContainer"

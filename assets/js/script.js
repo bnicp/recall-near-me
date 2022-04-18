@@ -13,22 +13,18 @@ var lastUserSearch = {
 
 /*Vizs - map and bar chart are loaded on window load */
 
-/***session storage is used instead of localstorage to store disclaimer agreement  status
- *  session storage value gets cleared when the page is closed or refreshed
- * so, Disclaimer pop up is displayed only when the page loads for the first time. 
- * navigating to and out of index.html page doesn't show disclaimer page.(when in same session)
- * * */
+/*session storage is used instead of localstorage to store disclaimer agreement  status
+   session storage value gets cleared when the page is closed or refreshed
+  so, Disclaimer pop up is displayed only when the page loads for the first time. 
+  navigating to and out of index.html page doesn't show disclaimer page.(when in same session)
+ */
 
 function init() {
-  if(sessionStorage.getItem('Disclaimer') === null){
+  if (sessionStorage.getItem("Disclaimer") === null) {
     disclaimerPopUp();
-    getMap();
+  }
+  getMap();
   getChart("recalling_firm");
-     }else{
-    //  myModal.style.display = "none";
-      getMap();
-      getChart("recalling_firm");
-     };
 }
 
 /*
@@ -36,38 +32,35 @@ when disclaimer modal pops up, search, contact and support us buttons are disabl
 About container, map and chart containers are hidden
 After user clicks agree, index.html page is loaded with all necessary information
 */
+function disclaimerPopUp() {
+  var myModal = document.getElementById("modalDisclaimer");
+  var dsclmrAbout = document.getElementById("aboutModal");
+  var dsclmrSearch = document.getElementById("searchModalOpenBtn");
+  var dsclmrContact = document.getElementById("contactOpenBtn");
+  var dsclmrSupport = document.getElementById("supportOpenBtn");
 
-function disclaimerPopUp(){
-  var myModal = document.getElementById('modalDisclaimer');
- var dsclmrAbout = document.getElementById('aboutModal');
-var dsclmrSearch = document.getElementById('searchModalOpenBtn');
-var dsclmrContact = document.getElementById('contactOpenBtn');
-var dsclmrSupport =document.getElementById('supportOpenBtn');
-
-
-dsclmrAbout.style.visibility = "hidden";
-dsclmrSearch.disabled = true;//contactModal  supportModal aboutModal
-dsclmrContact.disabled = true;
-dsclmrSupport.disabled = true;
+  dsclmrAbout.style.visibility = "hidden";
+  dsclmrSearch.disabled = true;
+  dsclmrContact.disabled = true;
+  dsclmrSupport.disabled = true;
   myModal.style.display = "block";
- document.getElementById('disclaimerButton').addEventListener('click',function(event){
-
-  if(event.target.innerHTML === 'Agree'){
-    if(sessionStorage.getItem('Disclaimer') === null){
-   sessionStorage.setItem('Disclaimer','Agree');
-    };
-    dsclmrSearch.disabled = false;//contactModal  supportModal
-    dsclmrContact.disabled = false;
-    dsclmrSupport.disabled = false;
-    dsclmrAbout .style.visibility = "visible";
-    myModal.style.display = "none";
-  };
- });
-  
-
+  document
+    .getElementById("disclaimerButton")
+    .addEventListener("click", function (event) {
+      if (event.target.innerHTML === "Agree") {
+        if (sessionStorage.getItem("Disclaimer") === null) {
+          sessionStorage.setItem("Disclaimer", "Agree");
+        }
+        dsclmrSearch.disabled = false;
+        dsclmrContact.disabled = false;
+        dsclmrSupport.disabled = false;
+        dsclmrAbout.style.visibility = "visible";
+        myModal.style.display = "none";
+      }
+    });
 }
 
-
+/* Gets the map on initial screen load */
 function getMap() {
   var requestUrl1 =
     "https://api.fda.gov/food/enforcement.json?count=state.exact";
@@ -107,15 +100,8 @@ function getMap() {
             position: "bottom center",
           },
         ],
-        
-
-
       };
 
-   
-
-    
-    
       JSC.chart("chartDiv", chartConfig);
 
       var xNew = "";
@@ -130,7 +116,6 @@ function getMap() {
         yNew = yNew.split(",");
 
         /*Below  condition checks help to avoid undefined as a state value passed to the map */
-
         return xNew.map(function (arrItem, index) {
           if (arrItem === "undefined") {
             arrItem = "M";
@@ -146,7 +131,6 @@ function getMap() {
 
 /* This section is for the bar chart data values*/
 /* event listeners are added for button click event, if  happens, inner html of the element is checked to pick up right request for fetching data */
-
 var varModal = "";
 
 function getChart(varModal) {
@@ -155,19 +139,18 @@ function getChart(varModal) {
     varModal +
     ".exact&sort=report_date:desc&limit=6";
 
-    var searchName = 'By Recalling Firm';
+  var searchName = "By Recalling Firm";
 
   if (varModal === "name_brand") {
-
     requestUrl1 =
       "https://api.fda.gov/food/event.json?count=products." +
       varModal +
       ".exact&limit=5";
-      searchName = 'By Brand Name';
+    searchName = "By Brand Name";
   }
 
   if (varModal === "reactions") {
-    searchName = 'By Reactions';
+    searchName = "By Reactions";
     requestUrl1 =
       "https://api.fda.gov/food/event.json?count=" +
       varModal +
@@ -187,16 +170,13 @@ function getChart(varModal) {
         //alert(xValues);
         yValues.push(results[i].count);
       }
-      /*** canvas element removed from index.html. canvas element is added dynamically on page load and on button click events on categories. 
+      /* canvas element removed from index.html. canvas element is added dynamically on page load and on button click events on categories.
        * This change prevents chart js data change on that is seen when hovered on bars
-       * 
-      */
-     document.getElementById("chartContainer").innerHTML='';
-      chartHTMLTemplate  = `<canvas id="chartModal" style="height: 100%"></canvas>`;
+       */
+      document.getElementById("chartContainer").innerHTML = "";
+      chartHTMLTemplate = `<canvas id="chartModal" style="height: 100%"></canvas>`;
       document.getElementById("chartContainer").innerHTML = chartHTMLTemplate;
 
-
-     
       var chartBar = new Chart("chartModal", {
         type: "bar",
         data: {
@@ -216,12 +196,13 @@ function getChart(varModal) {
           ],
         },
 
-        /* chart configurations are defined to reflect wrapped labels, matching palette color, removing gridlines, and making the bar chart responsive*/
+        /* chart configurations are defined to reflect wrapped labels, matching palette color, 
+        removing gridlines, and making the bar chart responsive*/
         options: {
           legend: { display: false },
           title: {
             display: true,
-            text: ""+searchName,
+            text: "" + searchName,
             responsive: true,
           },
           scales: {
@@ -272,14 +253,12 @@ function getChart(varModal) {
           },
         },
       });
-     
-   
-
     });
 }
 
+/* Searches whole document for specific clickable elements */
 document.addEventListener("click", function (event) {
- // event.stopPropagation();
+  // event.stopPropagation();
   if (event.target.id === "searchModalBtn") {
     lastUserSearch.state = document.getElementById("srchState").value.trim();
     lastUserSearch.city = document.getElementById("srchCity").value.trim();
@@ -292,15 +271,13 @@ document.addEventListener("click", function (event) {
     event.preventDefault();
     lastUserSearch = JSON.parse(localStorage.getItem("lastUserSearch"));
     if (lastUserSearch) {
-      console.log("HIIIII");
       document.getElementById("srchState").value = lastUserSearch.state;
       document.getElementById("srchCity").value = lastUserSearch.city;
       document.getElementById("srchProd").value = lastUserSearch.product;
       document.getElementById("srchFrmDt").value = lastUserSearch.fromDate;
       document.getElementById("srchToDt").value = lastUserSearch.toDate;
     }
-  } else if (event.target.id=== "catFirm") {
-    
+  } else if (event.target.id === "catFirm") {
     varModal = "recalling_firm";
     getChart(varModal);
   } else if (event.target.id === "catBrnd") {
@@ -312,10 +289,9 @@ document.addEventListener("click", function (event) {
   }
 });
 
+/* Adds click off functionality to appropriate modals */
 window.onclick = function (event) {
- 
   if (
-
     event.target === contactModal ||
     event.target === searchModal ||
     event.target === supportModal

@@ -13,10 +13,8 @@ function init() {
   getApi();
 }
 
+/* Loads from local storage the users search in order to get results from the FDA API */
 function getApi() {
-  //var requestUrl = 'https://api.github.com/repos/IBM/clai/issues?per_page=5';
-  //alert("fetch");
-  //construct url
   eleContainer.innerHTML = "";
   eleContainer.innerHTML = `<h3>Active Recall Results</h3>`;
   var url_1 = "https://api.fda.gov/food/enforcement.json?search=";
@@ -26,67 +24,59 @@ function getApi() {
   var paramFrmDt = lastUserSearch.fromDate;
   var paramToDt = lastUserSearch.toDate;
   var urlArray = [];
+
   if (paramState != "") {
     paramState = paramState.split(" ").join("+");
     var url_2 = "state:" + paramState;
     urlArray.push(url_2);
   }
+
   if (paramCity != "") {
     paramCity = paramCity.split(" ").join("+");
     var url_3 = "+city:" + paramCity;
     urlArray.push(url_3);
   }
+
   if (paramFrmDt != "" || paramToDt != "") {
     paramFrmDt = paramFrmDt.split("-").join("");
     paramToDt = paramToDt.split("-").join("");
-    //alert(paramFrmDt);
+
     if (paramFrmDt != "" && paramToDt != "") {
       var url_5 = "report_date:" + "[" + paramFrmDt + "+TO+" + paramToDt + "]";
       urlArray.push(url_5);
-      
-    } /*else if(paramFrmDt != ''  && paramToDt ==''){
-    var url_5 = 'report_date:'+'['+paramFrmDt+']';
-}*/ else {
-      // var url_5 = 'report_date:'+'['+paramToDt+']';
-      
     }
   }
+
   if (paramProd != "") {
     paramProd = paramProd.split(" ").join("+");
     var url_6 = "+product_description:" + paramProd;
     urlArray.push(url_6);
   }
+
   for (var i = 0; i < urlArray.length; i++) {
     if (i == 0) {
       url_1 = url_1 + urlArray[i];
     } else {
       url_1 = url_1 + "+AND+" + urlArray[i];
     }
-    //alert(url_1);
   }
-  var requestUrl = url_1 + "&sort=report_date:desc&limit=5"; //+'report_date:[20220101+TO+20221231]&limit=5'
-  // 'https://api.fda.gov/food/enforcement.json';
-  //https://api.fda.gov/food/enforcement.json?search=reason_for_recall:peanut;
-  //alert(requestUrl);
- 
+  var requestUrl = url_1 + "&sort=report_date:desc&limit=10";
+
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       var results = data.results;
-      
-      //console.log(results[0]['city']);
-      var htmlCreate = "";
-/*** results is undefined if there is no fetch data. Below conditional check helps to load dynamic HTML elements only if  the fetch data set is not empty. Else return No results found */
 
-      if( results != undefined)
-      {
-      if (results.length > 0) {
-        // pulled this line out to test for NYT clickable entity
-        // <h4>${results[i].product_type} - ${results[i].recalling_firm}</h4>
-        for (var i = 0; i < results.length; i++) {
-          htmlCreate = ` <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding">
+      var htmlCreate = "";
+      /* results is undefined if there is no fetch data. Below conditional check helps to load dynamic HTML elements only
+       if  the fetch data set is not empty. Else return No results found */
+
+      if (results != undefined) {
+        if (results.length > 0) {
+          for (var i = 0; i < results.length; i++) {
+            htmlCreate = ` <div class="w3-hover-shadow w3-center w3-round w3-margin w3-border w3-theme w3-padding">
           <h4 class="recallFirm w3-hover-opacity w3-bar-block w3-xlarge w3-text-white" style="background-color: #2E5987">${
             results[i].recalling_firm
           }</h4>
@@ -104,23 +94,24 @@ function getApi() {
           }</p>
           <p class="w3-medium w3-left-align w3-padding"><span class="w3-large">Report Date:</span> ${moment(
             results[i].report_date
-          ).format("MM/DD/YYYY")}</span></p></div>`; //+ htmlCreate;
-          eleContainer.innerHTML += htmlCreate;
+          ).format("MM/DD/YYYY")}</span></p></div>`;
+            eleContainer.innerHTML += htmlCreate;
+          }
         }
-      }
-     } else {
+      } else {
         eleContainer.innerHTML = "No Results Found";
-       
       }
     });
 }
 
+/* Uses the NYT API to get articles that contain the same words that the recalling firm has. */
 function getNYTArticles(event) {
   topicChoice.innerHTML = "";
 
   var splitSearchCriteria = event.target.textContent.split(" ");
   var nytSearchCriteriaHeader = "";
 
+  /* Splits the search criteria so that the user doesn't think they are only searching for a single whole term */
   splitSearchCriteria.forEach(function (criteria, i) {
     if (i === splitSearchCriteria.length - 1) {
       nytSearchCriteriaHeader += '"' + criteria + '"';
@@ -139,6 +130,7 @@ function getNYTArticles(event) {
     .then(function (response) {
       return response.json();
     })
+    /* Formats the dynamic HTML */
     .then(function (results) {
       if (results.response.docs.length > 0) {
         var articleArray = results.response.docs;
@@ -187,11 +179,11 @@ document.addEventListener("click", function (event) {
     getApi();
   }
 
+  // If the button to open the search modal is clicked then it will fill from local storage.
   if (event.target.id === "searchModalOpenBtn") {
     event.preventDefault();
     lastUserSearch = JSON.parse(localStorage.getItem("lastUserSearch"));
     if (lastUserSearch) {
-      console.log("I MADE THIS BITCHES");
       document.getElementById("srchState").value = lastUserSearch.state;
       document.getElementById("srchCity").value = lastUserSearch.city;
       document.getElementById("srchProd").value = lastUserSearch.product;
@@ -215,6 +207,7 @@ document.addEventListener("click", function (event) {
   }
 });
 
+// Functionality for clicking off of the modal instead of hitting the x button to close
 window.onclick = function (event) {
   if (
     event.target === contactModal ||
