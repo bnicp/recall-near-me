@@ -99,7 +99,10 @@ function getApi() {
           }
         }
       } else {
-        eleContainer.innerHTML = "No Results Found";
+        eleContainer.innerHTML = `<br /><h3 class="w3-margin">We're so sorry...</h3><br />
+          <img src="./assets/images/vegetables-155616_640.png" class="w3-padding" 
+          style="height: auto; width: 100%; max-width: 600px; opacity: 80%; color: #2e5987"><br /><br /><br />
+          <h3 class="w3-margin">No Results Found</h3><br />`;
       }
     });
 }
@@ -194,7 +197,7 @@ document.addEventListener("click", function (event) {
 
   // When the website title screen is clicked on then it will take you
   // back to the home page
-  if (event.target.id === "websiteTitle") {
+  if (event.target.classList.contains("websiteTitle")) {
     window.location.replace("index.html");
   }
 

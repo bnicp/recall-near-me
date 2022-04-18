@@ -26,36 +26,14 @@ a {
   display: none;
 }
 
-#mapHoverInfo {
-  font-size: 1rem;
-}
-
 .fntBold {
   font-weight: bold;
 }
 
-
-#modalDisclaimer{
-  display: none;
+#mapHoverInfo {
+  font-size: 1rem;
 }
 
-/* #displayResults {
-  overflow: scroll;
-} */
-
-/* #displayResults,
-#history,
-#displayNYT {
-  border: solid black 4px;
-  /* min-height: 350px; */
-/*} */
-/* 
-@media only screen and (max-width: 600px) {
-  header {
-    width: 100%;
-  }
-
-  #nav {
-    float: center;
-  }
-} */
+#modalDisclaimer {
+  display: none;
+}
