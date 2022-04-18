@@ -29,7 +29,7 @@ FDA Recall Search is a web application that returns cusomized information about 
 
 ![Product Name Screen Shot](./assets/images/readme-images/title-image.png)
 
-This web application would enable a user to search for FDA recalls by State , City or product decription. A result page is then created that displays the most recent articles from New York Times about said recalls and a map showing the total number of recals in each states and a bar chat showing the top three city where the 
+ 
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
