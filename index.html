@@ -19,16 +19,38 @@
       <button onclick="document.getElementById('searchModal').style.display='block'" class="w3-button" id="searchModalOpenBtn">
         Search
       </button>
-      <button onclick="document.getElementById('contactModal').style.display='block'" class="w3-button">
+      <button onclick="document.getElementById('contactModal').style.display='block'" class="w3-button" id="contactOpenBtn"> <!--id added to  add disable functionality on disclaimer pop up-->
         Contact Us
       </button>
-      <button onclick="document.getElementById('supportModal').style.display='block'" class="w3-button">
+      <button onclick="document.getElementById('supportModal').style.display='block'" class="w3-button" id="supportOpenBtn"> <!--id added to  add disable functionality on disclaimer pop up-->
         Support Us
       </button>
     </div>
   </header>
 
   <!-- modals -->
+
+<!-- Disclaimer Section-->
+<div class="modal-content  w3-animate-top w3-round-large " style ="background-color:rgba(46,89,135,0.3)" id="modalDisclaimer"> <!--id added to  add visibility hidden functionality on disclaimer pop up-->
+
+  <div class="modal-header">
+    <!--<span class="close">&times;</span>-->
+    <h3>Disclaimer</h3>
+  </div>
+  <div class="modal-body">
+    <p>All content available through this web site is for general information purposes only</p>
+    <p>You are encouraged to confirm any information obtained from or through this web site with other sources.</p>
+  </div>
+  <div class="modal-footer">
+    <button class="w3-button w3-hover-dark-grey w3-text-white w3-round-large" style="background-color: #2E5987" id="disclaimerButton">Agree</button>
+  </div>
+
+</div>
+
+
+<!-- disclaimer section ends here-->
+
+
   <div id="searchModal" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding">
       <header class="w3-container w3-theme-l1">
@@ -98,7 +120,7 @@
   </div>
 
   <!-- Page content -->
-  <div class="w3-content" style="max-width:2000px">
+  <div class="w3-content" style="max-width:2000px" id="aboutModal">
    <!-- About Section -->
    <div class="w3-row w3-margin" id="about">
     <div class="w3-col m6 s12 w3-padding-large">

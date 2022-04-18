@@ -13,10 +13,60 @@ var lastUserSearch = {
 
 /*Vizs - map and bar chart are loaded on window load */
 
+/***session storage is used instead of localstorage to store disclaimer agreement  status
+ *  session storage value gets cleared when the page is closed or refreshed
+ * so, Disclaimer pop up is displayed only when the page loads for the first time. 
+ * navigating to and out of index.html page doesn't show disclaimer page.(when in same session)
+ * * */
+
 function init() {
-  getMap();
+  if(sessionStorage.getItem('Disclaimer') === null){
+    disclaimerPopUp();
+    getMap();
   getChart("recalling_firm");
+     }else{
+    //  myModal.style.display = "none";
+      getMap();
+      getChart("recalling_firm");
+     };
 }
+
+/*
+when disclaimer modal pops up, search, contact and support us buttons are disabled
+About container, map and chart containers are hidden
+After user clicks agree, index.html page is loaded with all necessary information
+*/
+
+function disclaimerPopUp(){
+  var myModal = document.getElementById('modalDisclaimer');
+ var dsclmrAbout = document.getElementById('aboutModal');
+var dsclmrSearch = document.getElementById('searchModalOpenBtn');
+var dsclmrContact = document.getElementById('contactOpenBtn');
+var dsclmrSupport =document.getElementById('supportOpenBtn');
+
+
+dsclmrAbout.style.visibility = "hidden";
+dsclmrSearch.disabled = true;//contactModal  supportModal aboutModal
+dsclmrContact.disabled = true;
+dsclmrSupport.disabled = true;
+  myModal.style.display = "block";
+ document.getElementById('disclaimerButton').addEventListener('click',function(event){
+
+  if(event.target.innerHTML === 'Agree'){
+    if(sessionStorage.getItem('Disclaimer') === null){
+   sessionStorage.setItem('Disclaimer','Agree');
+    };
+    dsclmrSearch.disabled = false;//contactModal  supportModal
+    dsclmrContact.disabled = false;
+    dsclmrSupport.disabled = false;
+    dsclmrAbout .style.visibility = "visible";
+    myModal.style.display = "none";
+  };
+ });
+  
+
+}
+
 
 function getMap() {
   var requestUrl1 =
@@ -38,6 +88,7 @@ function getMap() {
       var chartConfig = {
         debug: false,
         type: "map",
+        legend_visible: false, //legend name and color properties are hidden
         defaultPoint: {
           label_text: "%stateCode",
           tooltip:
@@ -56,6 +107,9 @@ function getMap() {
             position: "bottom left",
           },
         ],
+        
+
+
       };
 
    
