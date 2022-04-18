@@ -48,6 +48,11 @@ a {
   font-weight: bold;
 }
 
+
+#modalDisclaimer{
+  display: none;
+}
+
 /* #displayResults {
   overflow: scroll;
 } */
