@@ -50,10 +50,10 @@ function getMap() {
           {
             id: "annt",
             label: {
-              text: "Above map displays top 25 states by total recalls. Hover over map to get info on total recalls till date",
+              text: "Above map displays top 25 states by total recalls. Hover over map to get info on total recalls-to-date.",
               style_fontSize: 14,
             },
-            position: "bottom left",
+            position: "bottom center",
           },
         ],
       };
