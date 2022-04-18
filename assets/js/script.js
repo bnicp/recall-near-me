@@ -47,7 +47,8 @@ function disclaimerPopUp() {
   document
     .getElementById("disclaimerButton")
     .addEventListener("click", function (event) {
-      if (event.target.innerHTML === "Agree") {
+      var agree = event.target.innerHTML;
+      if (agree.trim() === "Agree") {
         if (sessionStorage.getItem("Disclaimer") === null) {
           sessionStorage.setItem("Disclaimer", "Agree");
         }
