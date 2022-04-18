@@ -221,7 +221,7 @@ function getChart(varModal) {
           legend: { display: false },
           title: {
             display: true,
-            text: "Click above buttons to view top 4 recalls for selected category. Current selection: "+searchName,
+            text: ""+searchName,
             responsive: true,
           },
           scales: {
