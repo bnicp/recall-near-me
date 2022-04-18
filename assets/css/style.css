@@ -63,3 +63,13 @@ a {
   border: solid black 4px;
   /* min-height: 350px; */
 /*} */
+/* 
+@media only screen and (max-width: 600px) {
+  header {
+    width: 100%;
+  }
+
+  #nav {
+    float: center;
+  }
+} */

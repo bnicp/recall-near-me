@@ -16,7 +16,8 @@
   <header class="w3-container w3-teal w3-padding-32 w3-left-align">
     <a href="#home" class="w3-bar-item w3-button" id="websiteTitle">FDA Food Recalls</a>
     <div class="w3-right">
-      <button onclick="document.getElementById('searchModal').style.display='block'" class="w3-button" id="searchModalOpenBtn">
+      <button onclick="document.getElementById('searchModal').style.display='block'" class="w3-button"
+        id="searchModalOpenBtn">
         Search
       </button>
       <button onclick="document.getElementById('contactModal').style.display='block'" class="w3-button" id="contactOpenBtn"> <!--id added to  add disable functionality on disclaimer pop up-->
@@ -55,10 +56,11 @@
     <div class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding">
       <header class="w3-container w3-theme-l1">
         <span onclick="document.getElementById('searchModal').style.display='none'"
-      class="w3-button w3-display-topright w3-text-white w3-round-large w3-margin" style="background-color: #2E5987">&times;</span>
+          class="w3-button w3-display-topright w3-text-white w3-round-large w3-margin"
+          style="background-color: #2E5987">&times;</span>
         <h2>Search By:</h2>
         <div class="w3-section">
-          <input class="w3-input" type="text" id="srchState" maxlength=2 placeholder="Ex: GA"/>
+          <input class="w3-input" type="text" id="srchState" maxlength=2 placeholder="Ex: GA" />
           <label>State</label>
         </div>
         <div class="w3-section">
@@ -71,13 +73,14 @@
         </div>
         <br />
         <div class="w3-section">
-          <label>From: <input type="date" id="srchFrmDt" name="rclfrom"/></label>
-          <label>To: <input type="date" id="srchToDt" name="rclto"/></label>
+          <label>From: <input type="date" id="srchFrmDt" name="rclfrom" /></label>
+          <label>To: <input type="date" id="srchToDt" name="rclto" /></label>
           <p>Date Reported</p>
         </div>
         <br />
         <div class="w3-section">
-          <button type="submit" class="w3-button w3-hover-dark-grey w3-text-white w3-round-large" style="background-color: #2E5987" id="searchModalBtn">
+          <button type="submit" class="w3-button w3-hover-dark-grey w3-text-white w3-round-large"
+            style="background-color: #2E5987" id="searchModalBtn">
             Submit
           </button>
         </div>
@@ -88,14 +91,16 @@
     <div class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding">
       <header class="w3-container w3-theme-l1">
         <span onclick="document.getElementById('contactModal').style.display='none'"
-      class="w3-button w3-display-topright w3-text-white w3-round-large w3-margin" style="background-color: #2E5987">&times;</span>
+          class="w3-button w3-display-topright w3-text-white w3-round-large w3-margin"
+          style="background-color: #2E5987">&times;</span>
         <h3>Contact Info</h3>
         <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large "></i>Team13</p>
         <p><i class="fa fa-home fa-fw w3-margin-right w3-large"></i>Atlanta, GA</p>
-        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large"></i><a href="mailto:bnp415@gmail.com">bnp415@gmail.coml</a>
-        <footer class="w3-container w3-theme-l1">
-          <p>We'd love to hear from you!</p>
-        </footer>
+        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large"></i><a
+            href="mailto:bnp415@gmail.com">bnp415@gmail.coml</a>
+          <footer class="w3-container w3-theme-l1">
+            <p>We'd love to hear from you!</p>
+          </footer>
     </div>
   </div>
 
@@ -103,7 +108,8 @@
     <div class="w3-modal-content w3-card-4 w3-animate-top w3-round-large w3-padding">
       <header class="w3-container w3-theme-l1">
         <span onclick="document.getElementById('supportModal').style.display='none'"
-      class="w3-button w3-display-topright w3-text-white w3-round-large w3-margin" style="background-color: #2E5987">&times;</span>
+          class="w3-button w3-display-topright w3-text-white w3-round-large w3-margin"
+          style="background-color: #2E5987">&times;</span>
         <h3>Support Us</h3>
         <h5>Help by contributing!</h5>
       </header>
@@ -120,51 +126,56 @@
   </div>
 
   <!-- Page content -->
+
   <div class="w3-content" style="max-width:2000px" id="aboutModal">
-   <!-- About Section -->
-   <div class="w3-row w3-margin" id="about">
-    <div class="w3-col m6 s12 w3-padding-large">
-      <span class="w3-tag w3-theme-lime w3-round-large w3-padding" style="background-color: #2E5987">
-        <h3>Educate Yourself</h3>
-        <p class="w3-left-align w3-padding-16" style="font-size:14px">This site has been provided as an easy way for
-          you, the consumer, to gather information about relevant U.S. Food and Drug Administration (FDA) recalls.</p>
-        <p class="w3-left-align w3-padding-16" style="font-size:14px">Food recalls can be extremely serious events and
-          should be treated with caution when it comes to the products you purchase or may already have in your home.
-        </p>
-        <h3>What is a food recall?</h3>
-        <p class="w3-left-align w3-padding-16" style="font-size:14px">Food may be pulled from the marketplace because
-          the FDA deems it to be defective, adulterated, contaminated, misbranded, or mislabeled.</p>
-        <h3>The most common reasons foods are recalled:</h3>
-        <ul class="w3-left-align w3-padding" style="font-size:14px">
-          <li>contamination from E. coli, Salmonella, or other pathogens</li>
-          <li>undeclared ingredients that may cause food allergens</li>
-          <li>plastic, glass, metal, or other foreign objects</li>
-        </ul>
-        <h3>Let us help with this simple tool!</h3>
-        <p class="w3-left-align w3-padding-16" style="font-size:14px">Click the Search button in the top right of this
-          page to put in your specifed criteria and see recalls by State, City, Product Description, and/or Date
-          Recalled. Once the results populate, you will also be able to click the recalling firm to see any New York
-          Times coverage on similar terms.</p>
-      </span>
-      <img src="./assets/images/silverware-1667988_640.png" class="w3-padding-64 w3-hide-small w3-hide-medium"
-        style="height: 600px; opacity:80%; color:#2E5987">
-    </div>
-
-    <div class="w3-col m6 s12 w3-display-container w3-padding-32" style="height: 600px" id="chartDiv"></div>
-
-    <div class="w3-col m6 s12 w3-padding-32 w3-bottomleft"  style="color:white">
-      <div class="w3-display-container">
-        <button class="w3-button w3-medium w3-round-large" style="background-color: #2E5987" id = "catFirm">Recalling Firm</button>
-        <button class="w3-button w3-medium w3-round-large" style="background-color: #2E5987" id="catBrnd">Brand Name</button>
-        <button class="w3-button w3-medium w3-round-large" style="background-color: #2E5987" id = "catRctn">Reactions</button>
+    <!-- About Section -->
+    <div class="w3-row w3-margin" id="about">
+      <div class="w3-col m6 s12 w3-padding-large">
+        <span class="w3-tag w3-theme-lime w3-round-large w3-padding" style="background-color: #2E5987">
+          <h3>Educate Yourself</h3>
+          <p class="w3-left-align w3-padding-16" style="font-size:14px">This site has been provided as an easy way for
+            you, the consumer, to gather information about relevant U.S. Food and Drug Administration (FDA) recalls.</p>
+          <p class="w3-left-align w3-padding-16" style="font-size:14px">Food recalls can be extremely serious events and
+            should be treated with caution when it comes to the products you purchase or may already have in your home.
+          </p>
+          <h3>What is a food recall?</h3>
+          <p class="w3-left-align w3-padding-16" style="font-size:14px">Food may be pulled from the marketplace because
+            the FDA deems it to be defective, adulterated, contaminated, misbranded, or mislabeled.</p>
+          <h3>The most common reasons foods are recalled:</h3>
+          <ul class="w3-left-align w3-padding" style="font-size:14px">
+            <li>contamination from E. coli, Salmonella, or other pathogens</li>
+            <li>undeclared ingredients that may cause food allergens</li>
+            <li>plastic, glass, metal, or other foreign objects</li>
+          </ul>
+          <h3>Let us help with this simple tool!</h3>
+          <p class="w3-left-align w3-padding-16" style="font-size:14px">Click the Search button in the top right of this
+            page to put in your specifed criteria and see recalls by State, City, Product Description, and/or Date
+            Recalled. Once the results populate, you will also be able to click the recalling firm to see any New York
+            Times coverage on similar terms.</p>
+        </span>
+        <img src="./assets/images/silverware-1667988_640.png" class="w3-padding-64 w3-hide-small w3-hide-medium"
+          style="height: 600px; opacity:80%; color:#2E5987">
       </div>
-      <div class="w3-card-2 w3-center w3-padding w3-margin-right"  style="color:white">
-        <div class="w3-display-container w3-center w3-padding w3-large"  id="chartContainer" style="color:white;">
+
+
+      <div class="w3-col m6 s12 w3-display-container w3-margin-bottom-64" style="height: 600px" id="chartDiv"></div>
+
+      <div class="w3-col m6 s12 w3-display-container w3-padding-32" id="chartContainer" style="color:white">
+      </div>
+      <div class="w3-col m6 s12 w3-padding-32 w3-right" style="color:white">
+        <div class="w3-display-container">
+          <button class="w3-button w3-medium w3-round-large w3-margin-top" style="background-color: #2E5987"
+            id="catFirm">Recalling
+            Firm</button>
+          <button class="w3-button w3-medium w3-round-large w3-margin-top" style="background-color: #2E5987"
+            id="catBrnd">Brand
+            Name</button>
+          <button class="w3-button w3-medium w3-round-large w3-margin-top" style="background-color: #2E5987"
+            id="catRctn">Reactions</button>
         </div>
       </div>
     </div>
   </div>
-
   <!-- Footer -->
   <footer class="w3-container w3-center w3-dark-grey w3-padding-32">
     <p class="w3-medium">
@@ -176,7 +187,8 @@
   <script src="https://code.jscharting.com/latest/jscharting.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script type="text/javascript" src="https://code.jscharting.com/latest/modules/maps.js"></script> 
+  <script type="text/javascript" src="https://code.jscharting.com/latest/modules/maps.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
