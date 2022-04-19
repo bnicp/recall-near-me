@@ -3,14 +3,6 @@ var contactModal = document.getElementById("contactModal");
 var searchModal = document.getElementById("searchModal");
 var supportModal = document.getElementById("supportModal");
 
-var lastUserSearch = {
-  state: "",
-  city: "",
-  product: "",
-  fromDate: "",
-  toDate: "",
-};
-
 /*Vizs - map and bar chart are loaded on window load */
 
 /*session storage is used instead of localstorage to store disclaimer agreement  status
@@ -261,6 +253,13 @@ function getChart(varModal) {
 document.addEventListener("click", function (event) {
   // event.stopPropagation();
   if (event.target.id === "searchModalBtn") {
+    var lastUserSearch = {
+      state: "",
+      city: "",
+      product: "",
+      fromDate: "",
+      toDate: "",
+    };
     lastUserSearch.state = document.getElementById("srchState").value.trim();
     lastUserSearch.city = document.getElementById("srchCity").value.trim();
     lastUserSearch.product = document.getElementById("srchProd").value.trim();
@@ -270,7 +269,7 @@ document.addEventListener("click", function (event) {
     window.location.replace("search.html");
   } else if (event.target.id === "searchModalOpenBtn") {
     event.preventDefault();
-    lastUserSearch = JSON.parse(localStorage.getItem("lastUserSearch"));
+    var lastUserSearch = JSON.parse(localStorage.getItem("lastUserSearch"));
     if (lastUserSearch) {
       document.getElementById("srchState").value = lastUserSearch.state;
       document.getElementById("srchCity").value = lastUserSearch.city;
