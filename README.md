@@ -3,9 +3,8 @@
 
 # FDA Recall Search
 
-FDA Recall Search is a web application that returns cusomized information about FDA recalls near you!
+FDA Recall Search is a web application that returns customized information about FDA recalls near you! As a concerned citizen for the health and wellbeing of their family we would want to know if any of the food in our home was subject to various recalls and issues. If we know that information quickly then we can avoid potential consequences and costly doctor bills by knowing what may have caused an illness.
 
-<!-- table of content for easy navigation -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -22,9 +21,7 @@ FDA Recall Search is a web application that returns cusomized information about 
     <li><a href="#license">License</a></li>
   </ol>
 </details>
-<br>
-
-<!-- about the project -->
+</br>
 
 ## About The Project
 
@@ -36,8 +33,10 @@ This web application would enable a user to search for FDA recalls by State , Ci
 
 ### Built With
 
-- [W3 schools CSS](https://www.w3schools.com/css/)
-- [JQuery](https://jquery.com)
+- [W3 Schools CSS Framework](https://www.w3schools.com/w3css/default.asp)
+- [MomentJS](https://momentjs.com/docs/)
+- [JS Charting](https://jscharting.com/)
+- [Chart.js](https://www.chartjs.org/)
 - [Vanilla Javascript](http://vanilla-js.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -45,7 +44,7 @@ This web application would enable a user to search for FDA recalls by State , Ci
 ### Powered By
 
 - [New York Times API](https://developer.nytimes.com/apis)
-- [FDA API](https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts)
+- [FDA API](https://open.fda.gov/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -62,26 +61,31 @@ This Project was created by:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- Demo and how to use -->
-
 ## Demo
 
-Below is a video showing how to use the web application
+Below is a video showing how to use the web application. On the home screen you see a map of the top 25 states with current food recalls along with top 4 categories in an interactive graph on the bottom of the screen. After the user enters search criteria then a new page is loaded and if there are results then the user can click on the recalling firm to load potential New York Times articles with similar search terms. Those article titles can be clicked on to view the New York Times article on their site.
+
+![The webpage functionality in a video.](./assets/images/readme-images/FoodRecall.gif)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- link to deployed application -->
 
 ## Link to Application
 
 - Below is a url to the deployed application <br>
-  [FDA food recall search](https://bnicp.github.io/recall-near-me/)
+  [FDA Food Recall](https://bnicp.github.io/recall-near-me/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- link to deployed application -->
-
 ## Future Items
+
+- Better mobile first development
+- Under support us - give modal entry form for user to give suggestions on what they are looking for in the website
+- Another entry form on a support page for positive feedback from users who found it useful to display on the page
+- Better usefulness of the news article links by using a different API that may be pay by search like OneNewsAPI
+- Make the visualizations more useful with pictures of products
+- Use the users local information personalized into the search on user approval
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- License -->
 
